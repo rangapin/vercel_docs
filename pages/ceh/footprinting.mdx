@@ -1,0 +1,846 @@
+# 1 - Footprinting Concept
+
+What is Footprinting?
+
+Footprinting is the first step of an attack on information systems in which an attacker collects information about a target network to identify various ways to intrude into the system
+
+## **Types of Footprinting**
+
+ - Passive Footprinting Gathering information about the target without direct interaction 
+
+ - Active Footprinting Gathering information about the target with direct interaction
+
+## Information Obtained in Footprinting
+
+**Organization information** Employee details, telephone numbers, location, the background of the organization, web technologies, etc. 
+
+**Network information** Domain and sub-domains, network blocks, IP addresses of the reachable systems, Whois record, DNS, etc.
+
+**System information** OS and location of web servers, users and passwords, etc.
+
+## Objectives of Footprinting
+
+To build a hacking strategy, attackers need to gather information about the target organization's network.
+
+- Knowledge of security posture
+
+Performing footprinting on the target organization gives the complete profile of the organization's security posture.
+
+- Reduction of focus area
+- Identifying vulnerabilities
+
+A detailed footprint provides maximum information about the target organization.
+
+- Drawing of the network map
+
+Combining Footprinting techniques with tools such as Tracert allows the attacker to create diagrammatic representations of the target organization’s network presence.
+
+## Footprinting Threats
+
+ **Social Engineering:** Without using any intrusion methods, hackers, directly and indirectly, collect information through persuasion and other means.
+
+ **System and Network Attacks**: Footprinting enables an attacker to perform system and network attacks.
+
+ **Information Leakage**: Information leakage poses a threat to any organization.
+
+ **Privacy Loss**: Through footprinting, hackers can access the systems and networks of the organization and even escalate the privileges up to admin levels.
+
+ **Corporate Espionage**: Corporate espionage is a central threat to organizations, as competitors often aim to attempt to secure sensitive data through footprinting.
+
+ **Business Loss**: Footprinting can have a major effect on organizations such as online businesses and other e-commerce websites as well as banking and finance-related businesses.
+
+# 2 - Footprinting Methodology
+
+The footprinting methodology is a procedure for collecting information about a target organization from all available sources.
+
+## Footprinting through Search Engine
+
+Many search engines can extract target organization information such as technology platforms, employee details, login pages, intranet portals, contact information, and so on.
+
+A Google search could reveal submissions to forums by security personnel, disclosing the brands of firewalls or antivirus software used by the target.
+
+Examples of major search engines include Google, Bing, Yahoo, Ask, Aol, Baidu, WolframAlpha, and DuckDuckGo.
+
+Attackers can use advanced search operators available with these search engines and create complex queries to find, filter, and sort specific information regarding the target.
+
+## Footprinting Using Advanced Google Hacking Technique
+
+[cache:] Displays the web pages stored in the Google cache 
+
+[link:] Lists web pages that have links to the specified web page 
+
+[related:] Lists web pages that are similar to the specified web page 
+
+[info:] Presents some information that Google has about a particular web page 
+
+[site:] Restricts the results to those websites in the given domain 
+
+[allintitle:] Restricts the results to those websites containing all the search keywords in the title 
+
+[intitle:] Restricts the results to documents containing the search keyword in the title 
+
+[allinurl:] Restricts the results to those containing all the search keywords in the URL 
+
+[inurl:] Restricts the results to documents containing the search keyword in the URL 
+
+[location:] Finds information for a specific location
+
+## **What can a Hacker do with Google Hacking?**
+
+An attacker can create complex search engine queries to filter large amounts of search results to obtain information related to computer security.
+
+Once a vulnerable site is identified, attackers try to launch various possible attacks, such as buffer overflow and SQL injection, which compromise information security.
+
+## Google Hacking Database
+
+The Google Hacking Database (GHDB) is an authoritative source for querying the ever-widening reach of the Google search engine
+
+Attackers use Google dorks in Google advanced search operators to extract sensitive information about their targets, such as vulnerable servers, error messages, sensitive files, login pages, 
+
+and websites
+
+## **VoIP and VPN Footprinting through Google Hacking**
+
+Database Google hacking involves the implementation of advanced operators in the Google search engine to match specific strings of text within the search result. 
+
+These advanced operators help refine searches to expose sensitive information, vulnerabilities, and passwords.
+
+## **Other Techniques for Footprinting through Search Engines**
+
+***Gathering Information Using Google Advanced Search and Advanced Image Search***
+
+Google’s Advanced search feature helps an attacker to perform complex web searching. 
+
+With Google Advanced Search and Advanced Image Search, one can search the web more precisely and accurately.
+
+To perform an advanced search in Google, click Settings at the bottom-right of the Google home page, and then choose Advanced search in the menu or directly type 
+
+[https://www.google.com/advanced_search](https://www.google.com/advanced_search) in the address bar.
+
+To perform an advanced image search in Google, type [https://www.google.com/advanced_image_search](https://www.google.com/advanced_image_search) in the address bar.
+
+***Gathering Information using Reverse Image Search***
+
+To perform a reverse image search in Google, type [https://www.google.com/imghp](https://www.google.com/imghp) in the address bar. 
+
+Reverse image search allows you to use an image as a search query. You can upload an image or paste the URL of the image in the reverse image search engine.
+
+***Gathering Information from Video Search Engine***
+
+These video search engines either provide the functionality of uploading and hosting video content on their own web servers or parse video content that is hosted externally.
+
+***Gathering Information from Meta Search Engines***
+
+Meta search engines are different types of search engines that use other search engines (Google, Bing, [Ask.com](http://ask.com/), etc.) to produce their own results from the Internet in a very short time span. 
+
+These search engines do not have their own search indexes; instead, they take the inputs from the users and simultaneously send out the queries to the third-party search engines to obtain the results.
+
+***Gathering Information from FTP Search Engines***
+
+FTP search engines are used to search for files located on FTP servers that contain valuable information about the target organization. 
+
+Many industries, institutions, companies, and universities use FTP servers to store large file archives and other software that are shared among their employees.
+
+Using FTP search engines such as NAPALM FTP Indexer, Global FTP Search Engine, and FreewareWeb FTP File Search, attackers can search for critical files and directories containing 
+
+valuable information such as business strategies, tax documents, employee’s personal records, financial records, licensed software, and other confidential information.
+
+***Gathering Information from IoT Search Engines***
+
+Internet of Things (IoT) search engines crawl the Internet for IoT devices that are publicly accessible. 
+
+Through a basic search on these search engines, an attacker can gain control of Supervisory Control and Data
+
+Acquisition (SCADA) systems, traffic control systems, Internet-connected household appliances, industrial appliances, CCTV cameras, etc. Many of these IoT devices are unsecured,
+
+With the help of IoT search engines such as Shodan, Censys, and Thingful, attackers can obtain information such as the manufacturer details, geographical location, IP address, hostname, 
+
+and open ports of the target IoT device.
+
+## Footprinting through Web Services
+
+Web services such as people search services can provide sensitive information about the target. 
+
+Internet archives may also provide sensitive information that has been removed from the World Wide Web (WWW).
+
+## **Finding a Company’s Top-Level Domains (TLDs) and Sub-domains**
+
+A company's top-level domains (TLDs) and sub-domains can provide a large amount of useful information to an attacker. 
+
+A public website is designed to show the presence of an organization on the Internet. 
+
+It is available for free public access. It is designed to attract customers and partners. 
+
+It may contain information such as organizational history, services and products, and contact information. 
+
+The target organization’s external URL can be located with the help of search engines such as Google and Bing.
+
+The sub-domain is available to only a few people. 
+
+These persons may be employees of an organization or members of a department. In many organizations, website administrators create sub-domains to test new 
+
+technologies before deploying them on the main website. Generally, these sub-domains are in the testing stage and are insecure; hence, they are more vulnerable to various exploitation.
+
+**Tools to Search Company’s Sub-domains** 
+
+Netcraft Source: [https://www.netcraft.com](https://www.netcraft.com/) 
+
+Netcraft provides Internet security services, including anti-fraud and anti-phishing services, application testing, and PCI scanning.
+
+Sublist3r Source: [https://github.com](https://github.com/) 
+
+Sublist3r is a Python script designed to enumerate the subdomains of websites using OSINT. It enables you to enumerate subdomains across multiple sources at once.
+
+Pentest-Tools Find Subdomains Source: [https://pentest-tools.com](https://pentest-tools.com/) 
+
+Pentest-Tools Find Subdomains is an online tool used for discovering subdomains and their IP addresses, including network information and their HTTP servers.
+
+## **Finding the Geographical Location of the Target**
+
+Information such as the physical location of an organization plays a vital role in the hacking process. Attackers can obtain this information using footprinting. 
+
+In addition to the physical location, a hacker can also acquire information such as surrounding public Wi-Fi hotspots that may offer a way to break into the target organization’s network.
+
+**Tools for Finding the Geographical Location**
+
+Google Earth ([https://earth.google.com](https://earth.google.com/)) Attackers use the Google Earth tool to find the exact location of a target. 
+
+Using this tool, attackers can even access 3D images that depict most of the populated Earth’s surface with a high resolution.
+
+## **People Search on Social Networking Sites and People Search Services**
+
+*People Search on Social Networking Site*
+
+Social networking services, such as Facebook, Twitter, and LinkedIn, provide useful information about the individual that helps the attacker in performing social engineering and other attacks 
+
+The people search can provide critical information about a person or an organization, including location, emails, websites, blogs, contacts, important dates, etc. 
+
+People search online services, such as Intelius, pipl, BeenVerified, Whitepages, and PeekYou, provide people’s names, addresses, contact details, date of birth, photographs, videos, 
+
+profession, and so on
+
+*People Search on People Search Services*
+
+You can use public record websites to find information about email addresses, phone numbers, house addresses, and other information. 
+
+Many individuals use online people search services to find information about other people. Generally, online people search services such as pipl, Intelius, BeenVerified, Whitepages, and 
+
+Peek provide people’s names, addresses, contact details, date of birth, photographs, videos, profession, details about their family and friends, social networking profiles, property 
+
+information, and optional background on criminal checks.
+
+People search service - 
+
+Intelius Source: [https://www.intelius.com](https://www.intelius.com/)
+
+## **Gathering Information from LinkedIn**
+
+Attackers use theHarvester tool to perform enumeration on LinkedIn and find employees of the target company along with their job titles
+
+Attackers can use this information to gather more information, such as current location and educational qualifications, and perform social engineering or other kinds of attacks
+
+## **Harvesting Email Lists**
+
+Gathering email addresses related to the target organization acts as an important attack vector during the later phases of hacking 
+
+Attackers use automated tools such as theHarvester and Email Spider to collect publicly available email addresses of the target organization that helps them perform social engineering and 
+
+brute-force attacks
+
+## **Gathering Information from Financial Services**
+
+Financial services, such as Google Finance, MSN Money, and Yahoo! Finance, provide useful information about the target company, such as the market value of a company’s shares, 
+
+company profile, and competitor details 
+
+Attackers can use this information to perform service flooding, brute-force, or phishing attacks
+
+Google Finance Source: [https://www.google.com/finance](https://www.google.com/finance) 
+
+The Google finance service features business and enterprise headlines for many corporations, including their financial decisions and major news events.
+
+## **Footprinting through Job Sites**
+
+Attackers can gather valuable information about the operating system, software versions, company’s infrastructure details, and database schema of an organization through footprinting job 
+
+sites using different techniques.
+
+## **Deep and Dark Web Footprinting**
+
+**Deep Web**
+
+It consists of web pages and contents that are hidden and unindexed and cannot be located using traditional web browsers and search engines 
+
+It can be accessed by search engines like Tor Browser and The WWW Virtual Library 
+
+**Dark web or Darknet** 
+
+It is the subset of the deep web that enables anyone to navigate anonymously without being traced 
+
+It can be accessed by browsers, such as TOR Browser, Freenet, GNUnet, I2P, and Retroshare 
+
+**Tor Browser** 
+
+It is used to access the deep and dark web where it acts as a default VPN for the user and bounces the network IP address through several servers before interacting with the web
+
+Attackers use deep and dark web searching tools, such as Tor Browser and ExoneraTor, to gather confidential information about the target, including credit card details, passport 
+
+information, identification card details, medical records, social media accounts, Social Security Numbers (SSNs), etc
+
+## **Determining the Operating System**
+
+SHODAN search engine lets you find connected devices (routers, servers, IoT, etc.) using a variety of filters
+
+Censys search engine provides a full view of every server and device exposed to the Internet
+
+These tools search the Internet for detecting connected devices such as routers, servers, and IoT devices belonging to the target organization.
+
+Netcraft Source: [https://www.netcraft.com](https://www.netcraft.com/) The technique of obtaining information about the target network operating system is called OS fingerprinting. 
+
+Open [https://www.netcraft.com](https://www.netcraft.com/) in the browser and type the domain name of the target network in the What's that site running? field.
+
+SHODAN Search Engine Source: [https://www.shodan.io](https://www.shodan.io/) Shodan is a computer search engine that searches the Internet for connected devices (routers, servers, and IoT.). 
+
+You can use Shodan to discover which devices are connected to the Internet, where they are located, and who is using them.
+
+Censys Source: [https://censys.io](https://censys.io/) Censys monitors the infrastructure and discovers unknown assets anywhere on the Internet. 
+
+It provides a full view of every server and device exposed to the Internet.
+
+## **Competitive Intelligence Gathering**
+
+Competitive intelligence gathering is the process of identifying, gathering, analyzing, verifying, and using information about your competitors from resources, such as the Internet 
+
+Competitive intelligence is non-interfering and subtle in nature. Competitive Intelligence gathering can be performed using a direct or indirect approach. 
+
+**Direct** **Approach** 
+
+The direct approach serves as the primary source for competitive intelligence gathering. 
+
+Direct approach techniques include gathering information from trade shows, social engineering of employees and customers, and so on. 
+
+**Indirect** **Approach** 
+
+Through an indirect approach, information about competitors is gathered using online resources. Indirect approach techniques include: 
+
+o Company websites and employment ads 
+
+o Support threads and reviews 
+
+o Search engines, Internet, and online database
+
+## **Other Techniques for Footprinting through Web Service**
+
+*Information Gathering Using Business Profile Sites* 
+
+Business profile sites contain the business information of companies located in a particular region, which includes their contact information and can be viewed by anyone 
+
+Attackers use business profile sites, such as opencorporates and Crunchbase, to gather important information about the target organizations, such as their location, addresses, contact 
+
+information, and employee database 
+
+*Monitoring targets Using Alerts*
+
+Monitoring Alerts are content monitoring services that automatically provide up-to-date information based on your preference, usually via email or SMS 
+
+Targets Using Alerts Tools, such as Google Alerts and Twitter Alerts, help attackers to track mentions of the organization’s name, member names, website, or any people or projects 
+
+*Tracking Online Reputation of the Target* 
+
+Online Reputation Management (ORM) is a process of monitoring a company's reputation on the Internet and taking certain measures to minimize the negative search results/reviews and 
+
+thereby improve its brand reputation 
+
+Attackers use ORM tracking tools, such as Trackur and Brand24, to track a company’s online reputation, search engine ranking information, email notifications when a company is 
+
+mentioned online, and social news about the company
+
+## **Information Gathering Using Groups, Forums, and Blogs**
+
+Organizations generally fail to monitor the exchange of information that employees reveal to other users in forums, blogs, and group discussions. 
+
+Attackers see this as an advantage and collect sensitive information about the target, such as public network information, system information, and employee personal information.
+
+*Information Gathering Using NNTP Usenet Newsgroups* 
+
+Usenet newsgroup is a repository containing a collection of notes or messages on various subjects and topics that are submitted by the users over the Internet. 
+
+Network News Transfer Protocol (NNTP) is used to relay Usenet news articles from the discussions over the newsgroup.
+
+## **Collecting Information through Social Engineering on Social Networking Sites**
+
+Attackers use social engineering tricks to gather sensitive information from social networking websites 
+
+Examples of such sites include LinkedIn, Facebook, Instagram, Twitter, Pinterest, YouTube, and so on.
+
+Attackers create a fake profile and then use the false identity to lure employees into revealing their sensitive information 
+
+Attackers collect information about the employees’ interests and tricks them into revealing more information
+
+## **General Resources for Locating Information from Social**
+
+Attackers use tools such as BuzzSumo, Google Trends, Hashatit, and Ubersuggest to locate information on social media sites: 
+
+BuzzSumo Source: [https://buzzsumo.com](https://buzzsumo.com/) BuzzSumo’s advanced social search engine finds the most shared content for a topic, author, or domain.
+
+## **Conducting Location Search on Social Media Site**
+
+Conducting location search on social media sites, such as Twitter, Instagram, and Facebook, helps attackers in detecting the geolocation of the target 
+
+Many online tools such as Followerwonk, Hootsuite, and Sysomos are available to search for both geotagged and non-geotagged information on social media sites. 
+
+Attackers search social media sites using these online tools using keywords, usernames, date, time, and so on.
+
+Attackers use online tools, such as Followerwonk, Hootsuite, and Sysomos, to search for both geotagged and non-geotagged information about the target on social media sites 
+
+Attackers use this information to perform various social engineering and non-technical attacks 
+
+**Followerwonk** 
+
+Followerwonk helps to explore and grow one’s social graph by digging deeper into Twitter analytics
+
+## **Tools for Footprinting through Social Networking Sites**
+
+Sherlock Source: [https://github.com](https://github.com/) As shown in the screenshot, attackers use Sherlock to search a vast number of social networking sites for a target username.
+
+Social Searcher Source: [https://www.social-searcher.com](https://www.social-searcher.com/) Social Searcher allows attackers to search for content in social networks in real-time and provides deep analytics data.
+
+## **Website Footprinting**
+
+Website footprinting refers to the monitoring and analysis of the target organization’s website for information 
+
+Browsing the target website may provide the following information: 
+
+- Software used and its version
+- Operating system used and its scripting platform
+- Sub-directories and parameters
+- Filename, path, database field name, or query
+- Technologies used
+- Contact and CMS details
+
+Attackers use Burp Suite, Zaproxy, Wappalyzer, Website Informer, etc. to view headers that provide the following information: 
+
+- Connection status and content-type
+- Accept-Ranges and Last-Modified
+- X-Powered-By information
+- Web server in use and its version
+- 
+
+Burp Suite Source: [https://portswigger.net](https://portswigger.net/) 
+
+Burp Suite is an integrated platform for performing security testing of web applications. Its various tools work together to support the entire testing process, from initial  mapping and 
+
+analysis of an application's attack  surface to finding and exploiting security vulnerabilities.
+
+Examining the HTML source code Attackers can gather sensitive information by examining the HTML source code and following the comments that are inserted manually or those that the 
+
+CMS system creates.
+
+Examining Cookies To determine the software running and its behavior, one can examine cookies set by the server.
+
+## **Website Footprinting using Web Spiders**
+
+**Web spider**s, such as Web Data Extractor and ParseHub, perform automated searches on the target website and collect specified information, such as employee names and email addresses 
+
+Attackers use the collected information to perform footprinting and social engineering attacks 
+
+**User-Directed Spidering** 
+
+Attackers use standard web browsers to walk through the target website functionalities 
+
+The incoming and outgoing traffic of the target website is monitored and analyzed by tools that include features of both a web spider and an intercepting proxy 
+
+Attackers use tools such as Burp Suite and WebScarab to perform user-directed spidering
+
+**Web spidering tools** such as Web Data Extractor, ParseHub, and SpiderFoot can collect sensitive information from the target website.  
+
+Web Data Extractor Source: [http://www.webextractor.com](http://www.webextractor.com/) Web Data Extractor automatically extracts specific information from web pages. 
+
+It extracts targeted contact data (email, phone, and fax) from the website, extracts the URL and meta tags (title, description, keyword) for website promotion, searches directory creation, 
+
+performs web research, and so on.
+
+## **Mirroring Entire Website**
+
+Mirroring an entire website onto a local system enables an attacker to browse the website offline; it also assists in finding directory structure and other valuable information from the mirrored copy without sending multiple requests to the webserver 
+
+Website mirroring has the following benefits: 
+
+It is helpful for offline site browsing 
+
+It enables an attacker to spend more time viewing and analyzing the website for vulnerabilities and loopholes 
+
+It helps in finding the directory structure and other valuable information from the mirrored copy without multiple requests to the webserver
+
+Web mirroring tools, such as HTTrack Web Site Copier, and NCollector Studio, allows you to download a website to a local directory, recursively building all directories, HTML, images, 
+
+flash, videos, and other files from the server to your computer
+
+**HTTrack** Web Site Copier Source: [http://www.httrack.com](http://www.httrack.com/) 
+
+HTTrack is an offline browser utility. It downloads a website from the Internet to a local directory and recursively builds all the directories including HTML, images, and other files from the webserver on another computer.
+
+## **Extracting Website Information from [https://archive.org](https://archive.org/)**
+
+Source: [https://archive.org](https://archive.org/) 
+
+Archive is an Internet Archive Wayback Machine that explores archived versions of websites.
+
+Such exploration allows an attacker to gather information on an organization’s web pages since its creation.
+
+## **Extracting Website Links**
+
+Extracting website links is an important part of website footprinting where an attacker analyses a target website to determine its internal and external links 
+
+Attackers can use various online tools, such as Octoparse, Netpeak Spider, and Link Extractor, to extract linked images, scripts, iframes, and URLs of the target website
+
+***Octoparse*** 
+
+Octoparse offers automatic data extraction as it quickly scrapes web data without coding and turns web pages into structured data
+
+## **Gathering Wordlist from the Target Website**
+
+Attackers gather a list of words available on the target website to brute-force the email addresses gathered through search engines, social networking sites, web spidering, etc. 
+
+Attackers use CeWL tool to gather a list of words from the target website
+
+Use the following command to extract all the words available on the target website: cewl [www.certifiedhacker.com](http://www.certifiedhacker.com/)
+
+To run the CeWL tool, issue the following commands: 
+
+ ruby cewl.rb --help This command displays various options that a user can use to obtain a list of words from the target website. 
+
+ cewl [www.certifiedhacker.com](http://www.certifiedhacker.com/) This command returns a list of unique words present in the target URL. 
+
+ cewl --email [www.certifiedhacker.com](http://www.certifiedhacker.com/) In this case, the target website is [www.certifiedhacker.com](http://www.certifiedhacker.com/), and the ‘--email’ option is used to fetch a list of words and email addresses from the target website.
+
+## **Extracting Metadata of Public Document**
+
+Useful information may reside on the target organization’s website in the form of pdf documents, Microsoft Word files, etc. 
+
+Attackers use metadata extraction tools, such as Metagoofil, Exiftool, and Web Data Extractor, to extract metadata and hidden information 
+
+Attackers use this information to perform social engineering and other attacks
+
+**Metagoofil** extracts the metadata of public documents (pdf, doc, xls, ppt, docx, pptx, xlsx, etc.) belonging to a target company
+
+## **Other Techniques for Website Footprinting**
+
+*Monitoring Web Pages for Updates and Changes* 
+
+Attackers use web updates monitoring tools, such as WebSite-Watcher and VisualPing, to detect changes or updates in a target website, and they analyze the gathered information to detect 
+
+underlying vulnerabilities in the target website 
+
+*Searching for Contact Information, Email Addresses, and Telephone Numbers from Company Website* 
+
+Attackers can search the target company’s website to obtain crucial information about the company, such as the company’s contact details, location, partner information, news, and links to 
+
+other sites 
+
+*Searching for Web Pages Posting Patterns and Revision Numbers* 
+
+Attackers can search for copyright notices and revision numbers on the web and can use these details to perform deep analyses on the target organization 
+
+*Monitoring Website Traffic of Target Company* 
+
+Attackers use website traffic monitoring tools, such as Web-Stat, Alexa, and Monitis, to collect information about the target company’s website, such as total visitors, page views, bounce 
+
+rate, and site ranking
+
+WebSite-Watcher Source: [https://www.aignes.com](https://www.aignes.com/)
+
+WebSite-Watcher helps to track websites for updates and automatic changes. When an update or change occurs, WebSite-Watcher automatically detects and saves the last two versions onto 
+
+your disk.
+
+Searching for Contact Information, Email Addresses, and Telephone Numbers from Company Website Attackers can search the target company’s website to gather crucial information 
+
+about the company.
+
+Searching for Web Pages Posting Patterns and Revision Numbers Copyright is a protection mechanism provided by the law of a country, which grants the creator of an original work 
+
+exclusive rights for its use and distribution.
+
+Monitoring Website Traffic of Target Company Attackers can monitor a target company’s website traffic using tools such as Web-Stat, Alexa, and Monitis to collect valuable information.
+
+## **Email Footprinting**
+
+**Tracking Email Communications**
+
+Email tracking is used to monitor the delivery of emails to an intended recipient 
+
+Attackers track emails to gather information about a target recipient, such as IP addresses, geolocation, browser and OS details, to build a hacking strategy and perform social engineering 
+
+and other such attacks Attackers can use this information to build a hacking strategy and to perform social engineering and other attacks. 
+
+Examples of email tracking tools include eMailTrackerPro, Infoga, and Mailtrack.
+
+*Collecting Information from Email Header* 
+
+An email header contains the details of the sender, routing information, addressing scheme, date, subject, and recipient. Email headers also help attackers to trace the routing path taken by an email before it is delivered to the recipient.
+
+Commonly used email programs: 
+
+-  eM Client
+-  Mailbird Lite
+-  Hiri
+-  Mozilla Thunderbird
+-  Spike
+-  Claws Mail
+-  SmarterMail Webmail
+-  Outlook
+
+## **Email Tracking Tools**
+
+Email tracking tools, such as eMailTrackerPro, Infoga, Mailtrack, and PoliteMail, allow an attacker to track an email and extract information, such as sender identity, mail server, sender’s IP 
+
+address, and location eMailTrackerPro analyzes email headers and reveals information, such as the sender’s geographical location and IP address
+
+Attackers use the extracted information to attack the target organization’s systems by sending malicious emails. 
+
+Infoga Source: [https://github.com](https://github.com/) Infoga is a tool used for gathering email account information (IP, hostname, country, etc.) from different public sources (search engines, pgp key servers, 
+
+and Shodan), and it checks if an email was leaked using the [haveibeenpwned.com](http://haveibeenpwned.com/) API.
+
+eMailTrackerPro Source: [http://www.emailtrackerpro.com](http://www.emailtrackerpro.com/) As shown in the screenshot, attackers use eMailTrackerPro to analyze email headers and extract information such as the sender’s 
+
+geographical location, IP address, and so on.
+
+## **Whois Lookup**
+
+Whois databases are maintained by Regional Internet Registries and contain personal information of domain owners
+
+Whois is a query and response protocol used for querying databases that store the registered users or assignees of an Internet resource, such as a domain name, an IP address block, or an 
+
+autonomous system 
+
+Two types of data models exist to store and lookup Whois information: 
+
+Thick Whois - Stores the complete Whois information from all the registrars for a particular set of data. 
+
+Thin Whois - Stores only the name of the Whois server of the registrar of a domain, which in turn holds complete details on the data being looked up.
+
+Regional Internet Registries (RIRs) The RIRs include: 
+
+**ARIN** (American Registry for Internet Numbers) ([https://www.arin.net](https://www.arin.net/)) 
+
+**AFRINIC** (African Network Information Center) ([https://www.afrinic.net](https://www.afrinic.net/)) 
+
+**APNIC** (Asia Pacific Network Information Center) ([https://www.apnic.net](https://www.apnic.net/)) 
+
+**RIPE** (Réseaux IP Européens Network Coordination Centre) ([https://www.ripe.net](https://www.ripe.net/)) 
+
+**LACNIC** (Latin American and Caribbean Network Information Center) ([https://www.lacnic.net](https://www.lacnic.net/))
+
+## **Finding IP Geolocation Information**
+
+IP geolocation helps to identify information, such as country, region/state, city, ZIP/postal code, time zone, connection speed, ISP (hosting company), domain name, IDD country code, area 
+
+code, mobile carrier, and elevation 
+
+IP geolocation lookup tools, such as IP2Location and IP Location Finder, help to collect IP geolocation information about the target, which in turn helps attackers in launching social 
+
+engineering attacks, such as spamming and phishing
+
+IP2Location Source: [https://www.ip2location.com](https://www.ip2location.com/) 
+
+As shown in the screenshot, attackers use IP2Location tool to identify a visitor's geographical location, i.e., country, region, city, latitude, and longitude of city, ZIP code, time zone, 
+
+connection speed, ISP, domain name, IDD country code, area code, weather station code and name, mobile carrier, elevation, and usage type information using a proprietary IP address 
+
+lookup database and technology.
+
+## **Extracting DNS Information**
+
+DNS records provide important information about the location and types of servers 
+
+Attackers can gather DNS information to determine key hosts in the network and can perform social engineering attacks
+
+Attackers query DNS servers using DNS interrogation tools, such as Professional Toolset and DNS Records, to retrieve the record structure that contains information about the target DNS
+
+Record Type        Description 
+
+A                          Points to a host’s IP address
+
+MX                       Points to domain’s mail server
+
+NS                        Points to host’s name server
+
+CNAME                Canonical naming allows aliases to a host
+
+SOA                      Indicate authority for a domain
+
+SRV                      Service records
+
+PTR                      Maps IP address to a hostname
+
+RP                        Responsible person
+
+HINFO                 Host information record includes CPU type and OS
+
+TXT                      Unstructured text records  
+
+DNS interrogation tools such as Professional Toolset ([https://tools.dnsstuff.com](https://tools.dnsstuff.com/)) and DNS Records ([https://network-tools.com](https://network-tools.com/)) enable the user to perform DNS footprinting. DNSstuff 
+
+(Professional Toolset) extracts DNS information about IP addresses, mail server extensions, DNS lookups, Whois lookups, and so on. It can extract a range of IP addresses using an IP 
+
+routing lookup. 
+
+Attackers also use DNS lookup tools such as [DNSdumpster.com](http://dnsdumpster.com/), Bluto, and Domain Dossier to retrieve DNS records for a specified domain or hostname.
+
+## **Reverse DNS Lookup**
+
+Attackers perform a reverse DNS lookup on IP ranges in an attempt to locate a DNS PTR record for those IP addresses 
+
+Attackers use various tools, such as DNSRecon, to perform the reverse DNS lookup on the target host 
+
+Attackers can also find the other domains that share the same web server, using tools such as Reverse IP Domain Check
+
+When we get an IP address or a range of IP addresses, we can use these tools to obtain the domain name. 
+
+DNSRecon Source: [https://github.com](https://github.com/)
+
+Reverse IP Domain Check Source: [https://www.yougetsignal.com](https://www.yougetsignal.com/)
+
+## **Locate the Network Range**
+
+Network range information assists attackers in creating a map of the target network 
+
+The Internet Assigned Numbers Authority (IANA) has reserved the following three blocks of the IP address space for private internets: 
+
+10.0.0.0–10.255.255.255 (10/8 prefix), 172.16.0.0–172.31.255.255 (172.16/12 prefix), and 192.168.0.0–192.168.255.255 (192.168/16 prefix).
+
+One can find the range of IP addresses using ARIN whois database search tool
+
+A user can also visit the ARIN website ([https://www.arin.net/about/welcome/region](https://www.arin.net/about/welcome/region)) and enter the server IP in the SEARCH Whois text box.
+
+One can also find the range of IP addresses and the subnet mask used by the target organization from Regional Internet Registry (RIR)
+
+Attackers typically use more than one tool to obtain network information, as a single tool cannot provide all the required information.
+
+## **Traceroute**
+
+Traceroute programs work on the concept of ICMP protocol and use the TTL field in the header of ICMP packets to discover the routers on the path to a target host
+
+The utility can trace the number of routers the packets travel through, the round-trip time (duration in transiting between two routers), and, if the routers have DNS entries, the names of the 
+
+routers and their network affiliation. It can also trace geographic locations. It works by exploiting a feature of the Internet Protocol called TTL (Time to Live)
+
+**ICMP** Traceroute Windows operating system by default uses ICMP traceroute. 
+
+Go to the command prompt and type the tracert command along with the destination IP address or domain name as follows: C:\>tracert 216.239.36.10
+
+**TCP** Traceroute Many devices in any network are generally configured to block ICMP traceroute messages. In this scenario, an attacker uses TCP or UDP traceroute, which is also known as 
+
+Layer 4 traceroute. Go to the terminal in Linux operating system and type the tcptraceroute command along with the destination IP address or domain name as follows: tcptraceroute 
+
+[www.google.com](http://www.google.com/)
+
+**UDP** Traceroute Like Windows, Linux also has a built-in traceroute utility, but it uses the UDP protocol for tracing the route to the destination. Go to the terminal in the Linux operating 
+
+system and type the traceroute 
+
+command along with the destination IP address or domain name as follows: traceroute [www.google.com](http://www.google.com/)
+
+## **Traceroute Analysis**
+
+Attackers conduct traceroute to extract information about network topology, trusted routers, and firewall locations 
+
+For example, after running several traceroutes, an attacker might obtain the following information:
+
+traceroute 1.10.10.20, second to last hop is 1.10.10.1 
+
+traceroute 1.10.20.10, third to last hop is 1.10.10.1 
+
+traceroute 1.10.20.10, second to last hop is 1.10.10.50 
+
+traceroute 1.10.20.15, third to last hop is 1.10.10.1 
+
+traceroute 1.10.20.15, second to last hop is 1.10.10.50 
+
+By putting this information together, attackers can draw the network diagram
+
+## **Traceroute Tools**
+
+*Path Analyzer Pro* It delivers network route tracing with performance tests, DNS, Whois, and network resolution to investigate network issues
+
+*VisualRoute*  It is a traceroute and network diagnostic tool that identifies the geographical location of routers, servers, and other IP devices
+
+## **Footprinting through Social Engineering**
+
+Social engineering is the art of exploiting human behavior to extract confidential information 
+
+Social engineers depend on the fact that people are unaware of their valuable information and are careless about protecting it
+
+Social engineers attempt to gather
+
+- Credit card details and social security number
+- User names and passwords
+- Security products in use
+- Operating systems and software versions
+- Network layout information
+- IP addresses and names of servers
+
+Social engineering techniques include 
+
+- *Eavesdropping* - Unauthorized listening of conversations or reading of messages
+- It is the interception of any form of communication, such as audio, video, or text
+- *Shoulder surfing* - Secretly observing the target to gather critical information, such as passwords, personal identification numbers, account numbers, and credit card information
+- *Dumpster diving* - Looking for treasure in someone else's trash
+    
+    It involves the collection of phone bills, contact information, financial information, operations-related information, etc. from the target company’s trash bins, printer trash bins, user 
+    
+    desk for sticky notes, etc.
+    
+- *Impersonation* - Pretending to be a legitimate or authorized person and using the phone or other communication medium to mislead targets and trick them into revealing information
+
+# 3 - Footprinting Tools
+
+**Maltego** Maltego can be used to determine the relationships and real-world links between people, groups of people, organizations, websites, Internet infrastructure, documents, etc.
+
+**Recon-ng** Recon-ng is a Web Reconnaissance framework with independent modules and database interaction, which provides an environment in which open-source, web-based reconnaissance can be conducted
+
+**FOCA** (Fingerprinting Organizations with Collected Archives) is a tool used mainly to find metadata and hidden information in the documents it scans
+
+**OSRFramework** includes applications related to username checking, DNS lookups, information leaks research, deep web search, regular expressions extraction, etc.
+
+**OSINT Framework** is an open-source intelligence gathering framework that is focused on gathering information from free tools or resources
+
+It provides a simple web interface that lists various OSINT tools arranged by categories and is shown as OSINT tree structure on the web interface 
+
+The tools listed include the following indicators: 
+
+(T) - Indicates a link to a tool that must be installed and run locally 
+
+(D) - Google Dork 
+
+(R) - Requires registration 
+
+(M) - Indicates a URL that contains the search term and the URL itself must be edited manually
+
+**Recon-Dog** Recon-Dog is an all-in-one tool for information gathering needs, which uses APIs to collect information about the target system
+
+**BillCipher** BillCipher is an information-gathering tool for a Website or IP address
+
+See also:
+
+ **theHarvester** ([http://www.edge-security.com](http://www.edge-security.com/)) 
+
+ **Th3Inspector** ([https://github.com](https://github.com/)) 
+
+ **Raccoon** ([https://github.com](https://github.com/)) 
+
+ **Orb** ([https://github.com](https://github.com/)) 
+
+ **PENTMENU** ([https://github.c](https://github.c/)om)
+
+# 4 - Footprinting Countermeasures
+
+- Restrict the employees’ access to social networking sites from the organization’s network
+- Configure web servers to avoid information leakage
+- Educate employees to use pseudonyms on blogs, groups, and forums
+- Do not reveal critical information in press releases, annual reports, product catalogs, etc.
+- Limit the amount of information published on the website/Internet
+- Use footprinting techniques to discover and remove any sensitive information publicly available
+- Prevent search engines from caching a web page and use anonymous registration services

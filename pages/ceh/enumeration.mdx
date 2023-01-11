@@ -1,0 +1,509 @@
+# 1- Concepts
+
+## What is Enumeration?
+
+Enumeration involves an attacker creating active connections with a target system and performing directed queries to gain more information about the target
+
+Attackers use the extracted information to identify points for a system attack and perform password attacks to gain unauthorized access to information system resources
+
+Enumeration techniques are conducted in an intranet environment
+
+In particular, enumeration allows the attacker to collect the following information: 
+
+-  Network resources
+-  Network shares
+-  Routing tables
+-  Audit and service settings
+- Machine names
+-  Users and groups
+-  Applications and banners
+-  SNMP and fully qualified domain name (FQDN) details
+
+## Techniques for Enumeration
+
+1. Extract usernames using email IDs
+2. Extract information using default passwords
+3. Brute force Active Directory
+4. Extract information using DNS Zone Transfer
+5. Extract user groups from Windows
+6. Extract usernames using SNMP
+
+## Services and Ports to Enumerate:
+
+- TCP/UDP 53 Domain Name System (DNS) Zone Transfer
+- TCP/UDP 135 Microsoft RPC Endpoint Mapper
+- UDP 137 NetBIOS Name Service (NBNS)
+- TCP 139 NetBIOS Session Service (SMB over NetBIOS)
+- TCP/UDP 445 SMB over TCP (Direct Host)
+- UDP 161 Simple Network Management Protocol (SNMP)
+- TCP/UDP 389 Lightweight Directory Access Protocol (LDAP)
+- TCP 2049 Network File System (NFS)
+- TCP 25 Simple Mail Transfer Protocol (SMTP)
+- TCP/UDP 162 SNMP Trap
+- UDP 500 ISAKMP/Internet Key Exchange (IKE)
+- TCP 22 Secure Shell (SSH)
+
+# 2 - NetBIOS
+
+## NetBIOS Enumeration
+
+A NetBIOS name is a unique 16 ASCII character string used to identify the network devices over TCP/IP; fifteen characters are used for the device name, and the sixteenth character is
+
+reserved for the service or name record type
+
+Attackers use the NetBIOS enumeration to obtain:
+
+- The list of computers that belong to a domain
+
+- The list of shares on the individual hosts in the network
+
+- Policies and passwords
+
+The nbtstat utility in Windows displays NetBIOS over TCP/IP (NetBT) protocol statistics, NetBIOS name tables for both the local and remote computers, and the NetBIOS name cache
+
+- Run the nbtstat command “nbtstat - a <IP address of the remote machine>” to obtain the NetBIOS name table of a remote computer
+- Run the nbtstat command “nbtstat -c” to obtain the contents of the NetBIOS name cache, table of NetBIOS names, and their
+
+## NetBIOS Enumeration Tools
+
+**NetBIOS Enumerator**
+
+NetBIOS Enumerator helps to enumerate details, such as NetBIOS names, Usernames, Domain names, and MAC addresses, for a given range of IP addresses
+**Nmap**
+
+Nmap’s nbstat NSE script allow attackers to retrieve targets’ NetBIOS names and MAC addressesresolved IP addresses
+
+As shown in the screenshot, an attacker uses the following Nmap command to perform NetBIOS enumeration on a target host: 
+
+*nmap -sV -v --script nbstat.nse <target IP address>*
+
+The following are some additional NetBIOS enumeration tools: 
+
+-  Global Network Inventory ([http://www.magnetosoft.com](http://www.magnetosoft.com/))
+-  Advanced IP Scanner ([http://www.advanced-ip-scanner.com](http://www.advanced-ip-scanner.com/))
+-  Hyena ([https://www.systemtools.com](https://www.systemtools.com/))
+-  Nsauditor Network Security Auditor ([https://www.nsauditor.com](https://www.nsauditor.com/))
+
+## Enumerating User Accounts
+
+Enumerating user accounts using the PsTools suite helps to control and manage remote systems from the command line
+
+- PsExec - executes processes remotely
+- PsFile - shows files opened remotely
+- PsGetSid-displays the SID of a computer or user
+- PsKill - kills processes by name or process ID
+- PsInfo - lists information about a system
+- PsList - lists detailed information about processes
+- PsLoggedOn - shows who is logged on locally and via resource sharing
+- PsLogList - dumps event log records
+- PsPasswd - changes account passwords
+- PsShutdown - shuts down and optionally reboots a computer
+
+## Enumerating Shared Resources Using Net View
+
+The Net View utility is used to obtain a list of all the shared resources of a remote host or workgroup
+
+**Net View Commands**
+
+net view \\<computername> 
+
+net view /domain:<domain name>
+
+# 3 - SNMP
+
+## SNMP (Simple Network Management Protocol) Enumeration
+
+SNMP enumeration is the process of enumerating user accounts and devices on a target system using SNMP 
+
+SNMP consists of a manager and an agent; agents are embedded on every network device, and the manager is installed on a separate computer
+
+SNMP holds two passwords to access and configure the SNMP agent from the management station
+
+- Read community string: It is public by default; it allows for the viewing of the device/system configuration 
+
+- Read/write community string: It is private by default; it allows remote editing of configuration
+
+Attackers use these default community strings to extract information about a device
+
+Attackers enumerate SNMP to extract information about network resources, such as hosts, routers, devices, and shares, and network information, such as ARP tables, routing tables, and traffic
+
+## Working of SNMP
+
+SNMP uses a disturbed architecture comprising SNMP managers, SNMP agents, and several related components. The following are some commands associated with SNMP. 
+
+GetRequest: Used by the SNMP manager to request information from an SNMP agent 
+
+GetNextRequest: Used by the SNMP manager continuously to retrieve all the data stored in an array or table
+
+GetResponse: Used by an SNMP agent to satisfy a request made by the SNMP manager 
+
+SetRequest: Used by the SNMP manager to modify the value of a parameter within an SNMP agent’s management information base (MIB)
+
+Trap: Used by an SNMP agent to inform the pre-configured SNMP manager of a certain event
+
+## Management Information Base (MIB)
+
+MIB is a virtual database containing a formal description of all the network objects that can be managed using SNMP
+
+The MIB database is hierarchical, and each managed object in a MIB is addressed through Object Identifiers (OIDs)
+
+Two types of managed objects exist: 
+
+ - **Scalar** objects that define a single object instance 
+
+- **Tabular** objects that define multiple related object instances and are grouped in MIB tables
+
+OID includes the type of MIB object, such as counter, string, or address; access level, such as not-accessible, accessible-for-notify, read-only, or read-write; size restrictions; and range
+
+information
+
+SNMP uses the MIB’s hierarchical namespace containing OIDs to translate the OID numbers into a human-readable display
+
+## SNMP Enumeration Tools
+
+**Snmpcheck**
+
+Snmpcheck allows one to enumerate the SNMP devices and place the output in a very human-readable and friendly format
+
+S**oftPerfect Network Scanner**
+
+SoftPerfect Network Scanner discovers shared folders and retrieves practically any information about network devices via WMI, SNMP, HTTP, SSH, and PowerShell
+
+# 4 - LDAP
+
+## LDAP Enumeration
+
+1. Lightweight directory access protocol (LDAP) is an Internet protocol for accessing distributed directory services
+2. Directory services may provide any organized set of records, often in a hierarchical and logical structure, such as a corporate email directory
+3. A client starts a LDAP session by connecting to a directory system agent (DSA) on TCP port 389 and then sends an operation request to the DSA
+4. Information is transmitted between the client and server using basic encoding rules (BER)
+5. Attackers query the LDAP service to gather information, such as valid usernames, addresses, and departmental details, which can be further used to perform attacks
+
+## LDAP Enumeration Tools
+
+**Softerra LDAP Administrator**
+
+Softerra LDAP Administrator provides various features essential for LDAP development, deployment, and administration of directories
+
+The following are some additional LDAP enumeration tools: 
+
+ LDAP Admin Tool ([https://www.ldapsoft.com](https://www.ldapsoft.com/)) 
+
+ LDAP Account Manager ([https://www.ldap-account-manager.org](https://www.ldap-account-manager.org/)) 
+
+ LDAP Search ([https://securityxploded.com](https://securityxploded.com/)) 
+
+ JXplorer ([http://www.jxplorer.org](http://www.jxplorer.org/)) 
+
+ Active Directory Explorer (AD Explorer) ([https://docs.microsoft.com](https://docs.microsoft.com/))
+
+# 5 - NTP & NFS
+
+Network Time Protocol (NTP) is designed to synchronize the clocks of networked computers
+
+It uses UDP port 123 as its primary means of communication
+
+NTP can maintain time to within 10 milliseconds (1/100 second) over the public Internet
+
+It can achieve accuracies of 200 microseconds or better in local area networks under ideal conditions
+
+Attackers query the NTP server to gather valuable information, such as
+
+List of connected hosts
+
+Clients IP addresses in a network, their system names, and OSs
+
+Internal IPs can also be obtained if the NTP server is in the demilitarized zone (DMZ)
+
+## NTP Enumeration Commands
+
+**ntptrace** 
+
+Traces a chain of NTP servers back to the primary source 
+
+*ntptrace [-n] [-m maxhosts] [servername/IP_address]*
+
+**ntpdc** 
+
+Monitors operation of the NTP daemon, ntpd 
+
+*ntpdc [-ilnps] [-c command] [host] [...]*
+
+**ntpq**
+
+Monitors NTP daemon (ntpd) operations and determines performance
+
+*ntpq [-inp] [-c command] [host] [...]*
+
+## NTP Enumeration Tools
+
+**PRTG Network Monitor** includes SNTP Sensor monitor, a simple network time protocol (SNTP) server that shows the response time of the server and time difference in comparison to the local system time
+
+- Nmap ([https://nmap.org](https://nmap.org/))
+- Wireshark ([https://www.wireshark.org](https://www.wireshark.org/))
+- udp-proto-scanner ([https://labs.portcullis.co.uk](https://labs.portcullis.co.uk/))
+- NTP Server Scanner ([http://www.bytefusion.com](http://www.bytefusion.com/))
+
+## NFS Enumeration
+
+The NFS system is generally implemented on the computer network, where the centralization of data is required for critical resources
+
+NFS enumeration enables attackers to identify the exported directories, list of clients connected to the NFS server along with their IP addresses, and the shared data associated with the IP
+
+addresses
+
+## NFS Enumeration Tools
+
+**RPCScan**
+
+RPSCan communicates with RPC services and checks misconfigurations on NFS shares
+
+**SuperEnum**
+
+SuperEnum includes a script that does the basic enumeration of any open port
+
+# 6 - SMTP & DNS
+
+## SMTP Enumeration
+
+SMTP provides 3 built-in-commands: 
+
+- VRFY - Validates users
+- EXPN - Shows the actual delivery addresses of aliases and mailing lists
+- RCPT TO - Defines the recipients of a message
+
+SMTP servers respond differently to VRFY, EXPN, and RCPT TO commands for valid and invalid users, based on which we can determine valid users on the SMTP server 
+
+Attackers can directly interact with SMTP via the telnet prompt and collect a list of valid users on the SMTP server
+
+## SMTP Enumeration Tools
+
+**NetScan Tools Pro**
+
+NetScanTools Pro’s SMTP Email Generator tool tests the process of sending an email message through an SMTP server
+
+**smtp-user-enum**
+
+It is a tool for enumerating OS-level user accounts on Solaris via the SMTP service (sendmail) Enumeration is performed by inspecting the responses to VRFY, EXPN, and RCPT TO
+
+commands
+
+## DNS Enumeration Using Zone Transfer
+
+If the target DNS server allows zone transfers, then attackers use this technique to obtain DNS server names, hostnames, machine names, usernames, IP addresses, aliases, etc. assigned
+
+within a target domain 
+
+Attackers perform DNS zone transfer using tools, such as nslookup, dig, and DNSRecon; if DNS transfer setting is enabled on the target name server, it will provide DNS information, or else
+
+it will return an error saying it has failed or refuses the zone transfer
+
+**dig Command**
+
+Attackers use the dig command on Linux-based systems to query the DNS name servers and retrieve information about the target host addresses, name servers, mail exchanges, etc. 
+
+*dig ns <target domain>*
+
+**nslookup Command** 
+
+Attackers use the nslookup command on Windows-based systems to query the DNS name servers and retrieve information about the target host addresses, name servers, mail exchanges,
+
+etc. 
+
+*nslookup set querytype=soa <target domain>*
+
+**DNSRecon** 
+
+Attackers use DNSRecon to check all NS records of the target domain for zone transfers. As shown in the screenshot, attackers use the following command for DNS zone transfer: 
+
+*dnsrecon -taxfr -d <target domain>*
+
+## NS Cache Snooping
+
+DNS cache snooping is a DNS enumeration technique whereby an attacker queries the DNS server for a specific cached DNS record
+
+**Non-recursive Method**
+
+Attackers send a non-recursive query by setting the Recursion Desired (RD) bit in the query header to zero
+
+**Recursive Method**
+
+Attackers send a recursive query to determine the time the DNS record resides in the cache
+
+## DNSSEC Zone Walking
+
+DNSSEC zone walking is a DNS enumeration technique where an attacker attempts to obtain internal records of the DNS server if the DNS zone is not properly configured 
+
+Attackers use tools, such as LDNS and DNSRecon, to exploit this vulnerability and obtain the network information of a target domain and further launch Internet-based attacks
+
+**LDNS** Source: [https://www.nlnetlabs.nl](https://www.nlnetlabs.nl/) 
+
+LDNS-walk enumerates the DNSSEC zone and obtains results on the DNS record files.
+
+**DNSRecon** Source: [https://www.github.com](https://www.github.com/)
+
+DNSRecon is a zone enumeration tool that assists users in enumerating DNS records such as A, AAAA, and CNAME.
+
+# 7 - Other Techniques
+
+## IPsec Enumeration
+
+IPsec uses Encapsulation Security Payload (ESP), Authentication Header (AH), and Internet Key Exchange (IKE) to secure communication between virtual private network (VPN) end points
+
+Most IPsec based VPNs use Internet Security Association and Key Management Protocol (ISAKMP), a part of IKE, to establish, negotiate, modify, and delete Security Associations (SA) and
+
+cryptographic keys in a VPN environment
+
+A simple scanning for ISAKMP at UDP port 500 can indicate the presence of a VPN gateway
+
+Attackers can probe further using a tool, such as ike-scan, to enumerate sensitive information, including encryption and hashing algorithm, authentication type, key distribution algorithm,
+
+and SA LifeDuration
+
+The following command can be used to perform an Nmap scan for checking the status of ISAKMP over port 500:
+
+*nmap –sU –p 500 <target IP address>*
+
+## VoIP Enumeration
+
+VoIP uses Session Initiation Protocol (SIP) protocol to enable voice and video calls over an IP network
+
+SIP service generally uses UDP/TCP ports 2000, 2001, 5050, and 5061
+
+VoIP enumeration provides sensitive information, such as VoIP gateway/servers, IP-PBX systems, client software (softphones)/VoIP phones, User-agent IP addresses, and user extensions
+
+This information can be used to launch various VoIP attacks, such as Denial-of-Service (DoS), Session Hijacking, Caller ID spoofing, Eavesdropping, Spamming over Internet Telephony 
+
+SPIT), and VoIP phishing (Vishing)
+
+## PC Enumeration
+
+Remote Procedure Call (RPC) allows clients and servers to communicate in distributed client/server programs
+
+Enumerating RPC endpoints enables attackers to identify any vulnerable services on these service ports
+
+Attackers use the following Nmap scan commands to identify the RPC service running on the network:
+
+# nmap -sR <target IP/network> 
+
+# nmap -T4 –A <target IP/network>
+
+## Unix/Linux User Enumeration
+
+**rusers** 
+
+Displays a list of users who are logged on to remote machines or machines on local network Syntax: /usr/bin/rusers [-a] [-l] [-u| -h| -i] [Host ...]
+
+**rwho** 
+
+Displays a list of users who are logged on to hosts on the local network Syntax: rwho [ -a]
+
+**finger**
+
+Displays information about system users, such as login name, real name, terminal name, idle time, login time, office location, and office phone numbers
+
+Syntax: finger [-l] [-m] [-p] [-s] [user ...] [user@host ... ]
+
+## Telnet and SMB Enumeration
+
+**Telnet Enumeration**
+
+If the Telnet port is found open, attackers can access shared information, including the hardware and software information of the target Telnet enumeration enables attackers to exploit
+
+identified vulnerabilities and perform brute-force attacks to gain unauthorized access to the target and launch further attacks
+
+**SMB Enumeration**
+
+Attackers use SMB enumeration tools, such as Nmap, SMBMap, enum4linux, and nullinux, to perform a directed scan on the SMB service running on port 445 SMB enumeration helps attackers to perform OS banner grabbing on the target
+
+## FTP and TFTP Enumeration
+
+**FTP Enumeration**
+FTP transfers data in plain text between the sender and receiver, which can lead to critical information, such as usernames and passwords, being exposed to attackers Attackers use Nmap to
+
+scan and enumerate open port 21 by running FTP services and further use the information to launch various attacks, such as FTP bounce, FTP brute force, and packet sniffing
+
+**TFTP Enumeration**
+Attackers perform TFTP enumeration using tools, such as PortQry and Nmap, to extract information, such as running TFTP services and files stored on the remote server
+
+Using this information, attackers can gain unauthorized access to the target system, steal important files, and upload malicious script to launch further attacks
+
+## IPv6 Enumeration
+
+IPv6 is an addressing protocol that provides identification to computer systems, including their location information and further assists in routing traffic from one system to the other across
+
+the network Attackers perform IPv6 enumeration using various tools, such as Enyx and IPv6 Hackit, on target hosts to obtain their IPv6 addresses and further scan the enumerated IP
+
+addresses to detect various security problems
+
+**Enyx Source**: [https://github.com](https://github.com/)
+
+Enyx is an enumeration tool that fetches the IPv6 address of a machine through SNMP.
+
+**IPv6 Hackit** Source: [http://ipv6hackit.sourceforge.net](http://ipv6hackit.sourceforge.net/) Hackit is a scanning tool that provides a list of active IPv6 hosts. It can perform TCP port scanning and identify AAAA IPv6 host
+
+records.
+
+## BGP Enumeration
+
+Border Gateway Protocol (BGP) is a routing protocol used to exchange routing and reachability information between different autonomous systems (AS) present on the Internet
+
+Attackers perform BGP enumeration using tools, such as Nmap and BGP Toolkit, to discover the IPv4 prefixes announced by the AS number and routing path followed by the target
+
+Attackers use this information to launch various attacks, such as man-in-the-middle attack, BGP hijacking attack, and DoS attack against the target
+
+# 8 - Countermeasures
+
+**SNMP**
+
+- Remove the SNMP agent or turn off the SNMP service
+- If shutting off SNMP is not an option, then change the default community string names
+- Upgrade to SNMP3, which encrypts passwords and messages
+- Implement the Group Policy security option called “Additional restrictions for anonymous connections”
+- Ensure that the access to null session pipes, null session shares, and IPSec filtering is restricted
+- Do not misconfigure SNMP service with read-write authorization
+
+**DNS**
+
+- Disable the DNS zone transfers to the untrusted hosts
+- Ensure that the private hosts and their IP addresses are not published in DNS zone files of public DNS servers
+- Use premium DNS registration services that hide sensitive information, such as host information (HINFO) from the public
+- Use standard network admin contacts for DNS registrations to avoid social engineering attacks
+
+**SMTP**
+
+Configure SMTP servers to
+
+- Ignore email messages to unknown recipients
+- Exclude sensitive mail server and local host information in mail responses
+- Disable open relay feature
+- Limit the number of accepted connections from a source to prevent brute-force attacks
+
+**LDAP** 
+
+- By default, LDAP traffic is transmitted unsecured; use SSL or STARTTLS technology to encrypt the traffic
+- Select a username different from your email address and enable account lockout
+- Use NTLM or any basic authentication mechanism to limit access to legitimate users only
+
+**SMB**
+
+- Disable SMB protocol on Web and DNS Servers
+- Disable SMB protocol on Internet facing servers
+- Disable ports TCP 139 and TCP 445 used by the SMB protocol
+- Restrict anonymous access through RestrictNullSessAccess parameter from the Windows
+
+**NFS**
+
+- Implement proper permissions (read/write must be restricted to specific users) on exported file systems
+- Implement firewall rules to block NFS port 2049
+- Ensure proper configuration of files, such as /etc/smb.conf, /etc/exports and etc/hosts.allow, to protect the data stored in servers
+- Log requests to access system files on the NFS server
+- Keep the root_squash option in /etc/exports file turned ON, so that no requests made as root on the client are trusted
+
+**FTP**
+
+- Implement secure FTP (SFTP, which uses SSH) or FTP secure (FTPS, which uses SSL) to encrypt the FTP traffic over the network
+- Implement strong passwords or a certification-based authentication policy
+- Ensure that unrestricted uploading of files on the FTP server is not allowed
+- Disable anonymous FTP accounts; if not feasible, regularly monitor anonymous FTP accounts
+- Restrict access by IP or domain name to the FTP server

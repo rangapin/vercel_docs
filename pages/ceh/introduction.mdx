@@ -1,0 +1,804 @@
+# 1 - Information Security Overview
+
+## Elements of Information Security
+
+Information security refers to the protection or safeguarding of information and information systems that use, store, and transmit information from unauthorized access, disclosure, 
+
+alteration, and destruction. Information security is “the state of the well-being of information and infrastructure in which the possibility of theft, tampering, or disruption of information and
+
+services is kept low or tolerable.”
+
+- **Confidentiality** - Confidentiality is the assurance that the information is accessible only to authorized.
+- **Integrity** - Integrity is the trustworthiness of data or resources in the prevention of improper and unauthorized changes—the assurance that information is sufficiently accurate for its purpose.
+- **Availability** - Availability is the assurance that the systems responsible for delivering, storing, and processing information are accessible when required by authorized users.
+- **Authenticity** - Authenticity refers to the characteristic of communication, documents, or any data that ensures the quality of being genuine or uncorrupted.
+- **Non-repudiation** - Non-repudiation is a way to guarantee that the sender of a message cannot later deny having sent the message and that the recipient cannot deny having received the message.
+
+## Motives, Goals, and Objectives of Information Security Attack
+
+*Attacks = Motive (Goal) + Method + Vulnerability*
+
+A motive originates out of the notion that the target system stores or processes something valuable, and this leads to the threat of an attack on the system. Attackers try various tools and
+
+attack techniques to exploit vulnerabilities in a computer system or its security policy and controls in order to fulfill their motives
+
+Motives behind information security attacks
+
+- Disrupt business continuity
+- Perform information theft
+- Manipulating data
+- Create fear and chaos by disrupting critical infrastructures
+- Bring financial loss to the target
+- Propagate religious or political beliefs
+- Achieve a state’s military objectives
+- Damage the reputation of the target
+- Take revenge
+- Demand ransom
+
+## Classification of Attacks
+
+- **Passive Attacks** - Passive attacks involve intercepting and monitoring network traffic and data flow on the target network and do not tamper with the data.
+    
+    o Footprinting 
+    
+    o Sniffing and eavesdropping 
+    
+    o Network traffic analysis 
+    
+    o Decryption of weakly encrypted traffic
+    
+- **Active Attacks** - Active attacks tamper with the data in transit or disrupt communication or services between the systems to bypass or break into secured systems.
+    
+    o Denial-of-service (DoS) attack o Bypassing protection mechanisms 
+    
+    o Malware attacks (such as viruses, worms, ransomware)
+    
+    o Modification of information 
+    
+    o Spoofing attacks o Replay attacks 
+    
+    o Password-based attacks 
+    
+    o Session hijacking 
+    
+    o Man-in-the-Middle attack o DNS and ARP poisoning 
+    
+    o Compromised-key attack
+    
+    o Firewall and IDS attack 
+    
+    o Profiling o Arbitrary code execution 
+    
+    o Privilege escalation 
+    
+    o Backdoor access 
+    
+    o Cryptography attacks 
+    
+    o SQL injection 
+    
+    o XSS attacks 
+    
+    o Directory traversal attacks
+    
+    o Exploitation of application and OS software
+    
+- **Close-in Attacks** - Close-in attacks are performed when the attacker is in close physical proximity to the target system or network.
+    
+    o Social engineering (Eavesdropping, shoulder surfing, dumpster diving, and other methods)
+    
+- **Insider Attacks** - Insider attacks are performed by trusted persons who have physical access to the critical assets of the target.
+    
+    o Eavesdropping and wiretapping
+    
+    o Theft of physical devices 
+    
+    o Social engineering 
+    
+    o Data theft and spoliation 
+    
+    o Pod slurping 
+    
+    o Planting keyloggers, backdoors, or malware
+    
+- **Distribution Attacks** - Distribution attacks occur when attackers tamper with hardware or software prior to installation.
+    
+    Examples of distribution attacks include backdoors created by software or hardware vendors at the time of manufacture. Attackers leverage these backdoors to gain unauthorized access 
+    
+    to the target information, systems, or network.
+    
+    ## Information Warfare
+    
+    The term information warfare or InfoWar refers to the use of information and communication technologies (ICT) for competitive advantages over an opponent. 
+    
+    Examples of information warfare weapons include:
+    
+    - viruses,
+    - worms,
+    - Trojan horses,
+    - logic bombs,
+    - trap doors,
+    - nanomachines and microbes, electronic jamming,
+    - and penetration exploits and tools.
+    
+    Information warfare categories:
+    
+    - **Command and control warfare** (C2 warfare): In the computer security industry, C2 warfare refers to the impact an attacker possesses over a compromised system or network that they control
+    - **Intelligence-based warfare**: Intelligence-based warfare is a sensor-based technology that directly corrupts technological systems.
+    - **Electronic warfare**: According to Libicki, electronic warfare uses radio-electronic and cryptographic techniques to degrade communication.
+    - **Psychological warfare**: Psychological warfare is the use of various techniques such as propaganda and terror to demoralize one’s adversary in an attempt to succeed in battle
+    - **Hacker warfare**: According to Libicki, the purpose of this type of warfare can vary from the shutdown of systems, data errors, theft of information, theft of services, system
+    
+              monitoring, false messaging, and access to data.
+    
+    - **Economic warfare**: Libicki notes that economic information warfare can affect the economy of a business or nation by blocking the flow of information.
+    - **Cyberwarfare**: Libicki defines cyber warfare as the use of information systems against the virtual personas of individuals or groups.
+
+# 2 - Cyber Kill Chain Concepts
+
+The cyber kill chain methodology is a component of intelligence-driven defense for the identification and prevention of malicious intrusion activities. This methodology helps security
+
+professionals in identifying the steps that adversaries follow in order to accomplish their goals.
+
+**Reconnaissance -** An adversary performs reconnaissance to collect as much information about the target as possible to probe for weak points before actually attacking.  Activities of the 
+
+adversary include the following: 
+
+o Gathering information about the target organization by searching the Internet or through social engineering 
+
+o Performing analysis of various online activities and publicly available information 
+
+o Gathering information from social networking sites and web services 
+
+o Obtaining information about websites visited 
+
+o Monitoring and analyzing the target organization’s website 
+
+o Performing Whois, DNS, and network footprinting 
+
+o Performing scanning to identify open ports and services
+
+ **Weaponization** The adversary analyzes the data collected in the previous stage to identify the vulnerabilities and techniques that can exploit and gain unauthorized access to the target 
+
+organization.
+
+The following are the activities of the adversary: 
+
+o Identifying appropriate malware payload based on the analysis 
+
+o Creating a new malware payload or selecting, reusing, modifying the available malware payloads based on the identified vulnerability 
+
+o Creating a phishing email campaign 
+
+o Leveraging exploit kits and botnets
+
+**Delivery** The previous stage included creating a weapon. Its payload is transmitted to the intended victim(s) as an email attachment, via a malicious link on websites, or through a 
+
+vulnerable web application or USB drive.
+
+The following are the activities of the adversary: 
+
+o Sending phishing emails to employees of the target organization 
+
+o Distributing USB drives containing malicious payload to employees of the target organization 
+
+o Performing attacks such as watering holes on the compromised website 
+
+o Implementing various hacking tools against the operating systems, applications, and servers of the target organization
+
+**Exploitation** After the weapon is transmitted to the intended victim, exploitation triggers the adversary’s malicious code to exploit a vulnerability in the operating system, application, or 
+
+server on a target system.
+
+Activities of the adversary include the following: 
+
+o Exploiting software or hardware vulnerabilities to gain remote access to the target system
+
+ **Installation** The adversary downloads and installs more malicious software on the target system to maintain access to the target network for an extended period.
+
+The following are the activities of the adversary: 
+
+o Downloading and installing malicious software such as backdoors 
+
+o Gaining remote access to the target system 
+
+o Leveraging various methods to keep backdoor hidden and running 
+
+o Maintaining access to the target system
+
+**Command and Control** The adversary creates a command and control channel, which establishes two-way communication between the victim’s system and the adversary-controlled 
+
+server to communicate and pass data back and forth.
+
+The following are the activities of the adversary: 
+
+o Establishing a two-way communication channel between the victim’s system and the adversary-controlled server 
+
+o Leveraging channels such as web traffic, email communication, and DNS messages. 
+
+o Applying privilege escalation techniques 
+
+o Hiding any evidence of compromise using techniques such as encryption
+
+ **Actions on Objectives** The adversary controls the victim’s system from a remote location and finally accomplishes their intended goals. 
+
+## Tactics, Techniques, and Procedures (TTPs)
+
+The terms “tactics, techniques, and procedures” refer to the patterns of activities and methods associated with specific threat actors or groups of threat actors.
+
+The word “**tactics**” is defined as **a guideline that describes the way an attacker performs their attack** from beginning to end. 
+
+The word “**techniques**” is defined as **the technical methods used by an attacker to achieve intermediate results** during their attack. 
+
+Finally, the word “**procedures**” is defined as **the organizational approach followed by the threat actors to launch their attack**.
+
+## Adversary Behavioral Identification
+
+Adversary behavioral identification involves the identification of the common methods or techniques followed by an adversary to launch attacks to penetrate an organization’s network. It gives security professionals insight into upcoming threats and exploits.
+
+**Internal Reconnaissance -** Once the adversary is inside the target network, they follow various techniques and methods to carry out internal reconnaissance.
+
+**Use of PowerShell -** PowerShell can be used by an adversary as a tool for automating data exfiltration and launching further attacks. 
+
+**Unspecified Proxy Activities** An adversary can create and configure multiple domains pointing to the same host, thus, allowing an adversary to switch quickly between the domains to avoid 
+
+detection.
+
+**Use of Command-Line Interface** On gaining access to the target system, an adversary can make use of the command-line interface to interact with the target system, browse the files, read 
+
+file content, modify file content,   create new accounts, connect to the remote system, and download and install malicious code.
+
+**HTTP User-Agent -** In HTTP-based communication, the server identifies the connected HTTP client using the user agent field.
+
+**Command and Control Serve**r Adversaries use command and control servers to communicate remotely with compromised systems through an encrypted session.
+
+**Use of DNS Tunneling -** Adversaries use DNS tunneling to obfuscate malicious traffic in the legitimate traffic carried by common protocols used in the network.
+
+**Use of Web Shell -** An adversary uses a web shell to manipulate the web server by creating a shell within a website; it allows an adversary to gain remote access to the functionalities of a    
+
+server
+
+**Data Staging** - After successful penetration into a target’s network, the adversary uses data staging techniques to collect and combine as much data as possible.
+
+## Indicators of Compromise (IoCs)
+
+Indicators of Compromise (IoCs) are the clues, artifacts, and pieces of forensic data found on the network or operating system of an organization that indicate a potential intrusion or 
+
+malicious activity in the organization’s infrastructure
+
+An IoC is an atomic indicator, computed indicator, or behavioral indicator. It is the information regarding suspicious or malicious activities that are collected from various security 
+
+establishments in a network’s infrastructure. 
+
+*Atomic indicators* are those that cannot be segmented into smaller parts, and whose meaning is not changed in the context of an intrusion. Examples of atomic indicators are IP addresses 
+
+and email addresses. 
+
+*Computed indicators* are obtained from the data extracted from a security incident. Examples of computed indicators are hash values and regular expressions. 
+
+*Behavioral indicators* refer to a grouping of both atomic and computed indicators, combined on the basis of some logic
+
+## Categories of Indicators of Compromise
+
+**Email Indicators**
+
+Attackers usually prefer email services to send malicious data to the target organization or individual.
+
+**Network Indicators** 
+
+Network indicators are useful for command and control, malware delivery, and identifying details about the operating system, browser type, and other computer-specific information.
+
+**Host-Based Indicators**
+
+Host-based indicators are found by performing an analysis of the infected system within the organizational network.
+
+**Behavioral Indicators** 
+
+Generally, typical IoCs are useful for identifying indications of intrusion, such as malicious IP addresses, virus signatures, MD5 hash, and domain names. Behavioral IoCs are used to identify specific behavior related to malicious activities such as code injection into the memory or running the scripts of an application.
+
+Listed below are some of the key Indicators of Compromise (IoCs): 
+
+-  Unusual outbound network traffic
+-  Unusual activity through a privileged user account
+-  Geographical anomalies
+-  Multiple login failures
+-  Increased database read volume
+-  Large HTML response size
+-  Multiple requests for the same file
+-  Mismatched port-application traffic
+-  Suspicious registry or system file changes
+-  Unusual DNS requests
+-  Unexpected patching of systems
+-  Signs of Distributed Denial-of-Service (DDoS) activity
+-  Bundles of data in the wrong places
+-  Web traffic with superhuman behavior
+
+# 3 - Hacking Concepts
+
+## **What is Hacking?**
+
+Hacking in the field of computer security refers to exploiting system vulnerabilities and compromising security controls to gain unauthorized or inappropriate access to system resources.
+
+It involves a modifying system or application features to achieve a goal outside its creator’s original purpose. 
+
+## **Who is a Hacker?**
+
+A hacker is a person who breaks into a system or network without authorization to destroy, steal sensitive data, or perform malicious attacks. 
+
+A hacker is an intelligent individual with excellent computer skills, along with the ability to create and explore the computer’s software and hardware.
+
+**Black Hats**: Black hats are individuals who use their extraordinary computing skills for illegal or malicious purposes. 
+
+**White Hats**: White hats or penetration testers are individuals who use their hacking skills for defensive purposes.
+
+**Gray Hats**: Gray hats are the individuals who work both offensively and defensively at various times.
+
+**Suicide Hackers**: Suicide hackers are individuals who aim to bring down critical infrastructure for a “cause” and are not worried about facing jail terms or any other kind of punishment.
+
+**Script Kiddies**: Script kiddies are unskilled hackers who compromise systems by running scripts, tools, and software developed by real hackers.
+
+**Cyber Terrorists**: Cyber terrorists are individuals with a wide range of skills, motivated by religious or political beliefs, to create fear of large-scale disruption of computer networks
+
+**State-Sponsored Hackers**: State-sponsored hackers are individuals employed by the government to penetrate, gain top-secret information from, and damage the information systems of other governments
+
+**Hacktivis**t: Hacktivism is when hackers break into government or corporate computer systems as an act of protest. 
+
+## Hacking Phase:
+
+**Reconnaissance -** Reconnaissance refers to the preparatory phase in which an attacker gathers as much information as possible about the target prior to launching the attack.
+
+In this phase, the attacker draws on competitive intelligence to learn more about the target. Reconnaissance techniques are broadly categorized into active and passive.
+
+When an attacker is using **passive reconnaissance** techniques, they do not interact with the target directly. Instead, the attacker relies on publicly available information, news releases, or other no-contact methods. 
+
+**Active reconnaissance** techniques, on the other hand, involve direct interactions with the target system by using tools to detect open ports, accessible hosts, router locations, network mapping, details of operating systems, and applications.
+
+**Scanning -** Pre-attack Phase Scanning refers to the pre-attack phase when the attacker scans the network for specific information based on information gathered during reconnaissance Port Scanner Scanning can include the use of dialers, port scanners, network mappers, ping tools, and vulnerability scanners Extract Information Attackers extract information such as live machines, port, port status, OS details, device type, and system uptime to launch an attack.
+
+**Gaining Access -** Gaining access refers to the point where the attacker obtains access to the operating system or applications on the target computer or network The attacker can escalate privileges to obtain complete control of the system. In this process, the target’s connected intermediate systems are also compromised The attacker can gain access at the operating system, application, or network levels Examples include password cracking, buffer overflows, denial of service, and session hijacking
+
+**Maintaining Access -** Maintaining access refers to the phase when the attacker tries to retain their ownership of the system Attackers may prevent the system from being owned by other attackers by securing their exclusive access with backdoors, rootkits, or trojans Attackers can upload, download, or manipulate data, applications, and configurations on the owned system Attackers use the compromised system to launch further attacks
+
+**Clearing Tracks -** Clearing tracks refers to the activities carried out by an attacker to hide malicious acts The attacker’s intentions include obtaining continuing access to the victim’s system, remaining unnoticed and uncaught, and deleting evidence that might lead to their prosecution The attacker overwrites the server, system, and application logs to avoid suspicion.
+
+# 4 - Ethical Hacking Concepts
+
+## **What is Ethical Hacking?**
+
+Ethical hacking involves the use of hacking tools, tricks, and techniques to identify vulnerabilities and ensure system security 
+
+It focuses on simulating the techniques used by attackers to verify the existence of exploitable vulnerabilities in a system’s security Ethical hackers perform security assessments for an 
+
+organization with the permission of concerned authorities. Consider the following definitions: 
+
+-  The noun “**hacker**” refers to a person who enjoys learning the details of computer systems and stretching their capabilities.
+-  The verb “**to hack**” describes the rapid development of new programs or the reverse engineering of existing software to make it better or more efficient in new and innovative ways.
+-  The terms “**cracker**” and “attacker” refer to persons who employ their hacking skills for offensive purposes.
+-  The term “**ethical hacker**” refers to security professionals who employ their hacking skills for defensive purposes.
+
+The important distinction between ethical hackers and crackers is ***consent***.
+
+## **What is Ethical Hacking necessary?**
+
+Ethical hacking is necessary as it allows for counter-attacks against malicious hackers by anticipating the methods used to break into the system
+
+  - To prevent hackers from gaining access to the organization’s information systems
+ -  To uncover vulnerabilities in systems and explore their potential as a security risk
+  - To analyze and strengthen an organization’s security posture, including policies, network protection infrastructure, and end-user practices
+  - To provide adequate preventive measures in order to avoid security breaches
+  - To help safeguard customer data To enhance security awareness at all levels in a business
+
+*Questions*:
+
+- [ ]  What can an intruder see on the target system? (Reconnaissance and Scanning phases)
+- [ ]  What can an intruder do with that information? (Gaining Access and Maintaining Access phases) Does anyone at the target organization notice the intruders’ attempts or successes? (Reconnaissance and Covering Tracks phases)
+- [ ]  Are all components of the information system adequately protected, updated, and patched?
+- [ ]  How much time, effort, and money are required to obtain adequate protection?
+- [ ]  Are the information security measures in compliance with legal and industry standards?
+
+## Scope and Limitation of Ethical Hacking
+
+**Scope** ⇒ Ethical hacking is a crucial component of risk assessment, auditing, counter fraud, and information systems security best practices 
+
+It is used to identify risks and highlight remedial actions. It also reduces ICT costs by resolving vulnerabilities 
+
+**Limitations** ⇒ Unless the businesses already know what they are looking for and why they are hiring an outside vendor to hack systems in the first place, chances are there would not be 
+
+much to gain from the experience An ethical hacker can only help the organization to better understand its security system; it is up to the organization to place the right safeguards on the 
+
+network
+
+**Technical Skills**
+
+ - In-depth knowledge of major operating environments such as Windows, Unix, Linux, and Macintosh
+
+- In-depth knowledge of networking concepts, technologies, and related hardware and software
+
+- A computer expert adept at technical domains Knowledgeable about security areas and related issues
+
+- “High technical” knowledge for launching sophisticated attacks
+
+**Non-Technical Skills** 
+
+ - The ability to learn and adopt new technologies quickly
+
+ - Strong work ethics and good problem solving and communication skills 
+
+ - Committed to the organization’s security policies 
+
+ - An awareness of local standards and laws
+
+# 5 - Information Security Controls
+
+Information security controls prevent the occurrence of unwanted events and reduce risk to the organization’s information assets. 
+
+The basic security concepts critical to information on the Internet are confidentiality, integrity, and availability; the concepts related to the persons accessing the information are 
+
+authentication, authorization, and non-repudiation.
+
+This section deals with Information Assurance (IA), defense-in-depth, risk management, cyber threat intelligence, threat modeling, incident management, and AI and ML concept
+
+## **Information Assurance (IA)**
+
+IA refers to the assurance that the integrity, availability, confidentiality, and authenticity of information and information systems are protected during the usage, processing, storage, and 
+
+transmission of information.
+
+Some of the processes that help in achieving information assurance include: 
+
+Developing local policy, process, and guidance in such a way as to maintain the information systems at an optimum security level 
+
+Designing network and user authentication strategy—Designing a secure network ensures the privacy of user records and other information on the network. Implementing an effective user 
+
+authentication strategy secures the information system’s data 
+
+Identifying network vulnerabilities and threats—Vulnerability assessments outline the security posture of the network. Performing vulnerability assessments in search of network vulnerabilities and threats help to take the proper measures to overcome them 
+
+ Identifying problems and resource requirements 
+
+Creating a plan for identified resource requirements 
+
+Applying appropriate information assurance controls 
+
+Performing the Certification and Accreditation (C&A) process of information systems helps to trace vulnerabilities, and implement safety measures to nullify them
+
+Providing information assurance training to all personnel in federal and private organizations brings among them an awareness of information technology
+
+## **Defense-in-Depth**
+
+Defense-in-depth is a security strategy in which several protection layers are placed throughout an information system
+
+It helps to prevent direct attacks against the system and its data because a break in one layer only leads the attacker to the next layer
+
+## **What is Risk?**
+
+Risk refers to the degree of uncertainty or expectation of potential damage that an adverse event may cause to the system or its resources, under specified conditions.
+
+The relation between Risk, Threats, Vulnerabilities, and Impact is as follows: 
+
+**RISK = Threats x Vulnerabilities x Impact**
+
+The impact of an event on an information asset is the product of vulnerability in the asset and the asset’s value to its stakeholders. IT risk can be expanded to:
+**RISK = Threat × Vulnerability × Asset Value**
+
+## **Risk Level**
+
+The risk level is an assessment of the resulted impact on the network.
+
+**Level of Risk = Consequence x Likelihood**
+
+**Extreme or High** ⇒ Serious or Imminent danger
+
+Immediate measures are required to combat the risk 
+
+Identify and impose controls to reduce the risk to a reasonably low level
+
+**Medium** ⇒ Moderate danger
+
+Immediate action is not required, but action should be implemented quickly
+Implement controls as soon as possible to reduce the risk to a reasonably low level 
+
+**Low** ⇒ Negligible danger
+
+Take preventive steps to mitigate the effects of risk
+
+## **Risk Matrix**
+
+The risk matrix scales the risk occurrence or likelihood probability, along with its consequences or impact. 
+
+It is the graphical representation of risk severity and the extent to which the controls can or will mitigate it.
+
+## **Risk Management**
+
+Risk management is the process of identifying, assessing, responding to, and implementing the activities that control how the organization manages the potential effects of risk. 
+
+It has a prominent place throughout the security life cycle and is a continuous and ever-increasing complex process.
+
+Risk Management Objectives 
+
+Identify potential risks — this is the main objective of risk management
+
+The four key steps commonly termed as risk management phases are: 
+
+**Risk Identification** - Its main aim is to identify the risks—including the sources, causes, and consequences of the internal and external risks affecting the security of the organization before they cause harm.
+
+**Risk Assessment** - This phase assesses the organization’s risks and estimates the likelihood and impact of those risks.
+
+**Risk Treatment** - Risk treatment is the process of selecting and implementing appropriate controls on the identified risks in order to modify them.
+
+**Risk Tracking and Review** - The tracking and review process should determine the measures and procedures adopted and ensure that the information gathered to perform the assessment 
+
+was appropriate.
+
+## Cyber Threat Intelligence
+
+Cyber Threat Intelligence (CTI) is defined as the collection and analysis of information about threats and adversaries and the drawing of patterns that provide the ability to make 
+
+knowledgeable decisions for preparedness, prevention, and response actions against various cyber-attacks.
+
+Cyber threat intelligence helps the organization to identify and mitigate various business risks by converting unknown threats into known threats; it helps in implementing various advanced 
+
+and proactive defense strategies.
+
+**Types of Threat Intelligence**
+
+**Strategic Threat Intelligence** 
+
+Strategic threat intelligence provides high-level information regarding cybersecurity posture, threats, details about the financial impact of various cyber activities, attack trends, and the 
+
+impact of high-level business decisions.
+
+**Tactical Threat Intelligence** 
+
+Tactical threat intelligence plays a major role in protecting the resources of the organization.
+
+**Operational Threat Intelligence** 
+
+Operational threat intelligence provides information about specific threats against the organization.
+
+**Technical Threat Intelligence** 
+
+Technical threat intelligence provides information about resources an attacker uses to perform an attack; this includes command and control channels, tools, and other items.
+
+## Threat Modelling
+
+Threat modeling is a risk assessment approach for analyzing the security of an application by capturing, organizing, and analyzing all the information that affects the security of an application.
+
+Threat Modeling Process - 
+
+Identify Security Objectives - Identify the components, data flows, and trust boundaries
+
+Application Overview - Identify the components, data flows, and trust boundaries
+
+Decompose the Application - Helps to find more relevant and more detailed threats
+
+Identify Threats - Identify threats relevant to the control scenario and context using the information obtained in steps 2 and 3
+
+Identify Vulnerabilities  - Identify weaknesses related to the threats found using vulnerability categories
+
+## Incident Management
+
+Incident management is a set of defined processes to identify, analyze, prioritize, and resolve security incidents to restore normal service operations as quickly as possible and prevent future 
+
+recurrence of the incident
+
+## Incident Handling and Response
+
+Incident handling and response (IH&R) is the process of taking organized and careful steps when reacting to a security incident or cyberattack.
+
+Step 1: **Preparation** 
+
+The preparation phase includes performing an audit of resources and assets to determine the purpose of security and define the rules, policies, and procedures that drive the IH&R process.
+
+Step 2: **Incident Recording and Assignment**
+
+In this phase, the initial reporting and recording of the incident take place.
+
+Step 3: **Incident Triage** 
+
+In this phase, the identified security incidents are analyzed, validated, categorized, and prioritized.
+
+Step 4: **Notification** 
+
+In the notification phase, the IH&R team informs various stakeholders, including management, third-party vendors, and clients, about the identified incident.
+
+Step 5: **Containment** 
+
+This phase helps to prevent the spread of infection to other organizational assets, preventing additional damage. 
+
+Step 6: **Evidence Gathering and Forensic Analysis** 
+
+In this phase, the IH&R team accumulates all possible evidence related to the incident and submits it to the forensic department for investigation.
+
+Step 7: **Eradication** 
+
+In the eradication phase, the IH&R team removes or eliminates the root cause of the incident and closes all the attack vectors to prevent similar incidents in the future.
+
+Step 8: **Recovery** 
+
+After eliminating the causes for the incidents, the IH&R team restores the affected systems, services, resources, and data through recovery.
+
+Step 9: **Post-Incident Activities** 
+
+Once the process is complete, the security incident requires additional review and analysis before closing the matter.
+
+## Role of AI and ML in Cyber Security
+
+Machine learning (ML) and artificial intelligence (AI) are now vastly used across various industries and applications due to the increase in computing power, data collection, and storage 
+
+capabilities 
+
+ML is an unsupervised self-learning system that is used to define what the normal network looks like, along with its devices, and then to backtrack and report any deviations or anomalies in 
+
+real-time 
+
+AI and ML in cybersecurity helps in identifying new exploits and weaknesses, which can then be easily analyzed to mitigate further attacks
+
+**What are AI and ML?** 
+
+Artificial Intelligence is the only solution to defend networks against the various attacks that an antivirus scan cannot detect.
+
+ML is a branch of artificial intelligence (AI) that gives the systems the ability to self-learn without any explicit programs.
+
+There are two types of ML classification techniques: 
+
+**Supervised Learning** 
+
+Supervised learning uses algorithms that input a set of labeled training data to attempt to learn the differences between the given labels.
+
+**Unsupervised Learning** 
+
+Unsupervised learning makes use of algorithms that input unlabeled training data to attempt to deduce all the categories without guidance.
+
+## How Do AI and ML Prevent Cyber Attacks?
+
+**Password Protection and Authentication** 
+
+Password credentials play a critical role in preventing illegitimate access to the organization’s or user’s data.
+
+**Phishing Detection and Prevention** 
+
+Phishing is a common method attackers employ to send their payloads via emails.
+
+**Threat Detection** 
+
+Machine learning assists companies in detecting cyber-attacks before systems are compromised.
+
+**Vulnerability Management**
+
+AI and ML-based systems never allow vulnerability to exist for long; they dynamically scan for all types of vulnerabilities and alert the admins before the system is exploited.
+
+**Behavioral Analytics** 
+
+Another notable security improvement by artificial intelligence is “Behavioral Analytics.”
+
+**Network Security** 
+
+Two significant factors of network security are generating comprehensive security policies and mapping an enterprise’s network topology.
+
+**AI-based Antivirus** 
+
+Traditional antivirus tools perform file scanning on the organization’s networks to check if any signatures match those of known viruses or malware.
+
+**Fraud Detection** 
+
+AI and ML algorithms carry out anomaly detection to identify payment inconsistencies and fraudulent transactions.
+
+**Botnet Detection** 
+
+Botnets can bypass the Instruction Detection System (IDS) by leveraging its ineffectiveness in matching signatures.
+
+**AI to Combat AI Threats** 
+
+Attackers can also leverage AI technology to make their way into an organization’s network; such cyber threats must be detected immediately.
+
+# 6 - Information Security Laws and Standards
+
+Laws are a system of rules and guidelines that are enforced by a particular country or community to govern behavior.
+
+## Payment Card Industry Data Security Standard (PCI DSS)
+
+The Payment Card Industry Data Security Standard (PCI DSS) is a proprietary information security standard for organizations that handle cardholder information for the major debit, credit, 
+
+prepaid, e-purse, ATM, and POS cards PCI DSS applies to all entities involved in payment card processing — including merchants, processors, acquirers, issuers, and service providers, as 
+
+well as all other entities that store, process, or transmit cardholder data
+
+## ISO/IEC 27001:201
+
+SO/IEC 27001:2013 specifies the requirements for establishing, implementing, maintaining, and continually improving an information security management system within the context of the organization.
+
+The regulation is intended to be suitable for several different uses, including: 
+
+- Use within organizations to formulate security requirements and objectives
+-  Use within organizations as a way to ensure that security risks are cost-effectively managed
+-  Use within organizations to ensure compliance with laws and regulations
+-  Defining new information security management processes
+-  Identifying and clarifying existing information security management processes
+-  Use by the management of organizations to determine the status of information security management activities
+-  Implementing business-enabling information security
+-  Use by organizations to provide relevant information about information security to customer
+
+## Health Insurance Portability and Accountability Act (HIPAA)
+
+The HIPAA Privacy Rule provides federal protections for the individually identifiable health information held by covered entities and their business associates and gives patients an array of 
+
+rights to that information.
+
+The office of civil rights implemented HIPAA’s Administrative Simplification Statute and Rules, as discussed below: 
+
+**Electronic Transactions and Code Set Standards** 
+
+Transactions are electronic exchanges involving the transfer of information between two parties for specific purposes.
+
+**Privacy Rule** 
+
+The HIPAA Privacy Rule establishes national standards to protect people’s medical records and other personal health information and applies to health plans, health care clearinghouses, 
+
+and health care providers that conduct certain health care transactions electronically.
+
+**Security Rule** 
+
+The HIPAA Security Rule establishes national standards to protect individuals’ electronic personal health information that is created, received, used, or maintained by a covered entity.
+
+**Employer Identifier Standard** 
+
+The HIPAA requires that each employer has a standard national number that identifies them on standard transactions. 
+
+**National Provider Identifier Standard (NPI)** 
+
+The National Provider Identifier (NPI) is a HIPAA Administrative Simplification Standard. The NPI is a unique identification number assigned to covered health care providers.
+
+## Sarbanes Oxley Act (SOX)
+
+Enacted in 2002, the Sarbanes-Oxley Act is designed to protect investors and the public by increasing the accuracy and reliability of corporate disclosures
+
+## The Digital Millennium Copyright Act (DMCA) and the Federal Information Security Management Act (FISMA)
+
+**The Digital Millennium Copyright Act (DMCA)** 
+
+The DMCA is a United States copyright law that implements two 1996 treaties of the World Intellectual Property Organization (WIPO) It defines the legal prohibitions against the 
+
+circumvention of technological protection measures employed by copyright owners to protect their works, and against the removal or alteration of copyright management information
+
+**Federal Information Security Management Act (FISMA)** 
+
+The FISMA provides a comprehensive framework for ensuring the effectiveness of information security controls over information resources that support Federal operations and assets
+
+## General Data Protection Regulation (GDPR)
+
+GDPR regulation was put into effect on May 25, 2018, and is one of the most stringent privacy and security laws globally.
+
+The GDPR will levy harsh fines against those who violate its privacy and security standards, with penalties reaching tens of millions of euros
+
+**Lawfulness, fairness, and transparency**:  Processing must be lawful, fair, and transparent to the data subject 
+
+**Purpose limitation**: You must process data for the legitimate purposes specified explicitly to the data subject when you collected it 
+
+**Data minimization**: You should collect and process only as much data as necessary for the purposes specified 
+
+**Accuracy**: You must keep personal data accurate and up to date 
+
+**Storage limitation**: You may only store personally identifying data for as long as necessary for the specified purpose 
+
+**Integrity and confidentiality**: Processing must be done in such a way as to ensure appropriate security, integrity, and confidentiality (e.g., by using encryption) 
+
+**Accountability**: The data controller is responsible for demonstrating GDPR compliance with all these principles [https://gdpr.eu](https://gdpr.eu/) 
+
+## Data Protection Act 2018 (DPA)
+
+The DPA 2018 sets out the framework for data protection law in the UK
+
+The DPA protects individuals concerning the processing of personal data, in particular by:
+
+ - Requiring personal data to be processed lawfully and fairly, based on the data subject’s consent or another specified basis,
+
+ - Conferring rights on the data subject to obtain information about the processing of personal data and to require inaccurate personal data to be rectified, and
+
+ - Conferring functions on the Commissioner, giving the holder of that office responsibility to monitor and enforce their provisions
+
+## Cyber Law in Different Countries
+
+Cyberlaw or Internet law refers to any laws that deal with protecting the Internet and other online communication technologies. Cyberlaw covers topics such as Internet access and usage, 
+
+privacy, freedom of expression, and jurisdiction.

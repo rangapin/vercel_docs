@@ -1,0 +1,827 @@
+# 1 - Network Scanning Concepts
+
+## Overview of Network Scanning
+
+Network scanning refers to a set of procedures used for identifying hosts, ports, and services in a network
+
+Network scanning is one of the components of intelligence gathering which can be used by an attacker to create a profile of the target organization
+
+Objectives of Network Scanning 
+
+- To discover live hosts, IP addresses, and open ports of live hosts
+- To discover operating systems and system architecture
+- To discover services running on hosts
+- To discover vulnerabilities in live hosts
+
+Attacker ==== send TCP/IP probes ==⇒ Network
+
+              ≤=== get network information ===
+
+The purpose of scanning is to discover exploitable communications channels, probe as many listeners as possible, and track the ones that are responsive or useful to an attacker’s particular needs.
+
+**Types of Scanning**
+
+**Port Scanning** – Lists the open ports and services. Port scanning is the process of checking the services running on the target computer by sending a sequence of messages in an attempt to break-in.
+
+**Network Scanning** – Lists the active hosts and IP addresses. Network scanning is a procedure for identifying active hosts on a network, either to attack them or assess the security of the network.
+
+**Vulnerability Scanning** – Shows the presence of known weaknesses. Vulnerability scanning is a method for checking whether a system is exploitable by identifying its vulnerabilities.
+
+## TCP Communication Flags
+
+The following are the TCP communication flags: 
+
+ Synchronize or “**SYN**”: It notifies the transmission of a new sequence number. This flag generally represents the establishment of a connection (three-way handshake) between two hosts. 
+
+ Acknowledgment or “**ACK**”: It confirms the receipt of the transmission and identifies the next expected sequence number. When the system successfully receives a packet, it sets the value of its flag to “1,” thus implying that the receiver should pay attention to it. 
+
+ Push or “**PSH**”: When it is set to “1,” it indicates that the sender has raised the push operation to the receiver; this implies that the remote system should inform the receiving application about the buffered data coming from the sender. The system raises the PSH flag at the start and end of data transfer and sets it on the last segment of a file to prevent buffer deadlocks. 
+
+ Urgent or “**URG**”: It instructs the system to process the data contained in packets as soon as possible. When the system sets the flag to “1,” priority is given to processing the urgent data first and all the other data processing is stopped. 
+
+ Finish or “**FIN**”: It is set to “1” to announce that no more transmissions will be sent to the remote system and the connection established by the SYN flag is terminated. 
+
+ Reset or “**RST**”: When there is an error in the current connection, this flag is set to “1” and the connection is aborted in response to the error. Attackers use this flag to scan hosts and identify open ports.
+
+**TCP/IP Communication**
+
+*TCP session initiates using a three-way handshake mechanism:* 
+
+ To launch a TCP connection, the source (10.0.0.2:21) sends a SYN packet to the destination (10.0.0.3:21)
+
+ On receiving the SYN packet, the destination responds by sending a SYN/ACK packet back to the source
+
+ The ACK packet confirms the arrival of the first SYN packet to the source. 
+
+ Finally, the source sends an ACK packet for the ACK/SYN packet transmitted by the destination. 
+
+ This triggers an "OPEN" connection, thereby allowing communication between the source and destination, which continues until one of them, issues a "FIN" or "RST" packet to close the connection.
+
+*The system terminates the established TCP session as follows:* 
+
+After completing all the data transfers through the established TCP connection, the sender sends the connection termination request to the receiver through a FIN or RST packet. 
+
+Upon receiving the connection termination request, the receiver acknowledges the termination request by sending an ACK packet to the sender and finally sends its own FIN packet. 
+
+Then, the system terminates the established connection.
+
+# 2 - Scanning Tools
+
+## **Nmap**
+
+Network administrators can use Nmap for inventorying a network, managing service upgrade schedules, and monitoring host or service uptime 
+
+Attackers use Nmap to extract information such as live hosts on the network, open ports, services (application name and version), types of packet filters/ firewalls, as well as operating systems and versions used
+
+## **Hping2/Hping3**
+
+Command-line network scanning and packet crafting tool for the TCP/IP protocol 
+
+It can be used for network security auditing, firewall testing, manual path MTU discovery, advanced traceroute, remote OS fingerprinting, remote uptime guessing, TCP/IP stacks auditing, etc.
+
+```powershell
+Syntax: # hping <option> targetIPaddress
+```
+
+## **ICMP Scanning**
+
+A ping sweep or Internet Control Message Protocol (ICMP) scanning is a process of sending an ICMP request or ping to all the hosts on the network to determine the ones that are up.
+
+**ACK Scanning on Port 80** 
+
+This scanning technique can be used to probe the existence of a firewall and its rule sets.
+
+**Hping Commands** 
+
+The various Hping commands are as follows: 
+
+o *ICMP ping* 
+
+Ex. hping3 -1 10.0.0.25
+
+o *ACK scan on port 80* 
+
+Ex. hping3 –A 10.0.0.25 –p 8
+
+o *UDP scan on port 80* 
+
+Ex. hping3 -2 10.0.0.25 –p 80
+
+o C*ollecting Initial Sequence Number* 
+
+Ex. hping3 192.168.1.103 -Q -p 139 –s
+
+o *Firewalls and Timestamp*s 
+
+Ex. hping3 -S 72.14.207.99 -p 80 --tcp-timestamp
+
+o *SYN scan on port 50-60* 
+
+Ex. hping3 -8 50-60 –S 10.0.0.25 –V
+
+o *FIN, PUSH and URG scan on port 80* 
+
+Ex. hping3 –F –P –U 10.0.0.25 –p 80
+
+o *Scan entire subnet for live host* 
+
+Ex. hping3 -1 10.0.1.x --rand-dest –I eth0
+
+o *Intercept all traffic containing HTTP signature* 
+
+Ex. hping3 -9 HTTP –I eth0
+
+o *SYN flooding a victim* 
+
+Ex. hping3 -S 192.168.1.1 -a 192.168.1.254 -p 22 --flood
+
+ **Metasploit** 
+
+Source: [https://www.metasploit.com](https://www.metasploit.com/) 
+
+Metasploit is an open-source project that provides the infrastructure, content, and tools to perform penetration tests and extensive security auditing.
+
+ **NetScanTools Pro** Source: [https://www.netscantools.com](https://www.netscantools.com/) 
+
+NetScanTools Pro is an investigation tool that allows you to troubleshoot, monitor, discover, and detect devices on your network.
+
+Some additional scanning tools are listed below: 
+
+ **Unicornscan** ([https://sourceforge.net](https://sourceforge.net/)) 
+
+ **SolarWinds Port Scanner** ([https://www.solarwinds.com](https://www.solarwinds.com/)) 
+
+ **PRTG Network Monitor** ([https://www.paessler.com](https://www.paessler.com/)) 
+
+ **OmniPeek Network Protocol Analyzer** ([https://www.savvius.com](https://www.savvius.com/))
+
+## **Scanning Tools for Mobile**
+
+ **IP Scanner Source**: [https://10base-t.com](https://10base-t.com/) 
+
+IP Scanner for iOS scans your local area network to determine the identity of all its active machines and Internet devices. It allows attackers to perform network scanning activities along with ping and port scans.
+
+ **Fing Sourc**e: [https://www.fing.io](https://www.fing.io/) 
+
+Fing is a mobile app for Android and iOS that scans and provides complete network information, such as IP address, MAC address, device vendor, and ISP location.
+
+ **Network Scanner Source**: [https://play.google.com](https://play.google.com/) 
+
+Network Scanner is an Android mobile application that allows attackers to identify the active host in the range of possible addresses in a network.
+
+# 3 - Host Discovery
+
+Host discovery provides an accurate status of the systems in the network, which enables an attacker to avoid scanning every port on every system in a sea of IP addresses to identify whether the target host is up. Host discovery is the first step in network scanning.
+
+Host discovery techniques are used to identify the active/live systems in the network. Some host discovery techniques are listed below: 
+
+ **ARP** Ping Scan 
+
+ **UDP** Ping Scan 
+
+ **ICMP** Ping Scan 
+
+o **ICMP ECHO** Ping 
+
+ **ICMP ECHO** Ping Sweep 
+
+o **ICMP Timestamp** Ping 
+
+o **ICMP Address Mask** Ping 
+
+ **TCP** Ping Scan 
+
+o **TCP SYN** Ping 
+
+o **TCP ACK** Ping 
+
+ **IP Protocol** Scan
+
+**ARP Ping Scan and UDP Ping Scan**
+
+**ARP Ping Scan** 
+
+Attackers send ARP request probes to target hosts, and an ARP response indicates that the host is active
+
+Advantages: 
+
+ ARP ping scan is considered to be more efficient and accurate than other host discovery techniques 
+
+ ARP ping scan automatically handles ARP requests, retransmission, and timeout at its own discretion 
+
+ ARP ping scan is useful for system discovery, where you may need to scan large address spaces 
+
+ ARP ping scan can display the response time or latency of a device to an ARP packet
+
+**UDP Ping Scan**
+
+Attackers send UDP packets to target hosts, and a UDP response indicates that the host is active
+
+Advantages: 
+
+ UDP ping scans have the advantage of detecting systems behind firewalls with strict TCP filtering, leaving the UDP traffic forgotten.
+
+**ICMP ECHO Ping Scan**
+
+ICMP ECHO ping scans involve sending ICMP ECHO requests to a host. If the host is live, it will return an ICMP ECHO reply 
+
+This scan is useful for locating active devices or determining if the ICMP is passing through a firewall
+
+In Zenmap, the -PE option is used to perform the ICMP ECHO ping scan.
+
+```powershell
+nmap -sn -PE 10.10.10.10
+```
+
+**ICMP ECHO Ping Sweep** 
+
+Ping sweep is used to determine the live hosts from a range of IP addresses by sending ICMP ECHO requests to multiple hosts. If a host is alive, it will return an ICMP ECHO reply 
+
+Attackers calculate subnet masks by using a Subnet Mask Calculator to identify the number of hosts that are present in the subnet 
+
+Attackers subsequently use a ping sweep to create an inventory of live systems in the subnet
+
+**ICMP ECHO Ping Sweep Using Nmap** 
+
+Source: [https://nmap.org](https://nmap.org/) 
+
+Nmap helps an attacker to perform a ping sweep that determines live hosts from a range of IP addresses. In Zenmap, the -PE option with a list of IP addresses is used to perform ICMP ECHO ping sweep.
+
+```powershell
+nmap -sn -PE 10.10.10.5- 15
+```
+
+**Ping Sweep Tools** 
+
+**Angry IP Scanner** 
+
+IP Scanner pings each IP address to check if any of these addresses are live. Then, it optionally resolves hostnames, determines the MAC address, scans ports, etc.
+
+Some additional ping sweep tools that an attacker uses to determine live hosts on the target network are listed below: 
+
+ SolarWinds Engineer’s Toolset ([https://www.solarwinds.com](https://www.solarwinds.com/)) 
+
+ NetScanTools Pro ([https://www.netscantools.com](https://www.netscantools.com/)) 
+
+ Colasoft Ping Tool ([https://www.colasoft.com](https://www.colasoft.com/)) 
+
+ Visual Ping Tester ([http://www.pingtester.net](http://www.pingtester.net/)) 
+
+ OpUtils ([https://www.manageengine.com](https://www.manageengine.com/))
+
+**Ping Sweep Countermeasures** 
+
+Some countermeasures for avoiding ping sweep are as follows:
+
+ Configure the firewall to detect and prevent ping sweep attempts instantaneously 
+
+ Use intrusion detection systems and intrusion prevention systems such as Snort ([https://www.snort.org](https://www.snort.org/)) to detect and prevent ping sweep attempts 
+
+ Carefully evaluate the type of ICMP traffic flowing through the enterprise networks 
+
+ Terminate the connection with any host that is performing more than 10 ICMP ECHO requests 
+
+ Use DMZ and allow only commands such as ICMP ECHO_REPLY, HOST UNREACHABLE, and TIME EXCEEDED in DMZ Zone 
+
+ Limit the ICMP traffic with Access Control Lists (ACLs) to your ISP’s specific IP addresses
+
+**Other Host Discovery Techniques** 
+
+* ICMP Timestamp and Address Mask Ping Scan* 
+
+These techniques are alternatives for the traditional ICMP ECHO ping scan and are used to determine whether the target host is live, specifically when the administrators block ICMP ECHO pings
+
+* TCP SYN Ping Scan* 
+
+Attackers send empty TCP SYN packets to a target host, and an ACK response means that the host is active # nmap –sn –PS
+
+**Advantages**: 
+
+ As the machines can be scanned parallelly, the scan never gets the time-out error while waiting for the response.
+
+ TCP SYN ping can be used to determine if the host is active without creating any connection. Hence, the logs are not recorded at the system or network level, enabling the attacker to leave no traces for detection.
+
+* TCP ACK Ping Scan* 
+
+Attackers send empty TCP ACK packets to a target host, and an RST response means that the host is active # nmap –sn –PA targetIPaddress
+
+**Advantages**: 
+
+ Both the SYN and the ACK packet can be used to maximize the chances of bypassing the firewall. However, firewalls are mostly configured to block the SYN ping packets, as they are the most common pinging technique. In such cases, the ACK probe can be effectively used to bypass these firewall rule sets easily.
+
+* Protocol Ping Scan* 
+
+Attackers send various probe packets to the target host using different IP protocols, and any response from any probe indicates that a host is active # nmap –sn –PO
+
+# 4 - Port and Service Discovery
+
+The next step in the network scanning process involves checking the open ports and services in live systems. After performing a ping scan, once attackers detect the live systems in the target network, they try to find open ports and services in the discovered live systems. Moreover, sometimes, users unknowingly keep unnecessary open ports on their systems. An attacker takes advantage of such open ports to launch attacks. See the extensive list of common ports and services
+
+## **Port Scanning Techniques**
+
+The port scanning techniques are categorized according to the type of protocol used for communication
+
+This categorization is based on the type of protocol used for communication in the network. 
+
+**TCP Scanning:** 
+
+ Open TCP Scanning Methods 
+
+o TCP Connect/Full Open Scan 
+
+ Stealth TCP Scanning Methods
+
+ o Half-open Scan 
+
+o Inverse TCP Flag Scan 
+
+ Xmas Scan 
+
+ FIN Scan 
+
+ NULL Scan 
+
+ Maimon Scan 
+
+o ACK Flag Probe Scan 
+
+ TTL-Based Scan 
+
+ Window Scan 
+
+ Third Party and Spoofed TCP Scanning Methods 
+
+o IDLE/IP ID Header Scan
+
+**UDP Scanning:** 
+
+ UDP Scanning 
+
+**SCTP Scanning:** 
+
+ SCTP INIT Scanning 
+
+ SCTP COOKIE/ECHO 
+
+**Scanning SSDP Scanning:** 
+
+ SSDP and List Scanning 
+
+**IPv6 Scanning:** 
+
+ IPv6 Scanning
+
+## TCP Connect/Full Open Scan
+
+The TCP Connect scan detects when a port is open after completing the three-way handshake TCP Connect scan establishes a full connection and then closes the connection by sending an RST packet 
+
+It does not require superuser privileges
+
+In Zenmap, the -sT option is used to perform TCP Connect/full open scan.
+
+```powershell
+nmap -sT -v 10.10.10.10
+```
+
+## Stealth Scan (Half-open Scan)
+
+Stealth scanning involves abruptly resetting the TCP connection between the client and server before the completion of three-way handshake signals, thus leaving the connection half-open 
+
+Attackers use stealth scanning techniques to bypass firewall rules as well as logging mechanisms and hide under the appearance of regular network traffic
+
+In Zenmap, the -sS option is used to perform a stealth scan/TCP half-open scan.
+
+```powershell
+nmap -sS -v 10.10.10.10
+```
+
+## Inverse TCP Flag Scan
+
+Attackers send TCP probe packets with a TCP flag (FIN, URG, PSH) set or with no flags, where no response implies that the port is open, whereas an RST response means that the port is closed
+
+*Advantages* 
+
+ Avoids many IDS and logging systems; highly stealthy 
+
+*Disadvantages* 
+
+ Needs raw access to network sockets, thus requiring super-user privileges 
+
+ Mostly effective against hosts using a BSD-derived TCP/IP stack (not effective against Microsoft Windows hosts, in particular).
+
+## Xmas Scan Using
+
+the Xmas scan, attackers send a TCP frame to a remote device with FIN, URG, and PUSH flags set FIN scanning works only with OSes that use an RFC 793-based TCP/IP implementation 
+
+The Xmas scan will not work against any current version of Microsoft Windows
+
+*Advantages* 
+
+ It avoids IDS and TCP three-way handshake. 
+
+*Disadvantages* 
+
+ It works on the UNIX platform only. 
+
+In Zenmap, the -sX option is used to perform Xmas scan whereas the -sF and -sN options are used to perform FIN scan and NULL scan, respectively.
+
+```powershell
+nmap -sX -v 10.10.10.10
+```
+
+## TCP Maimon Scan
+
+Attackers send FIN/ACK probes, and if there is no response, then the port is Open|Filtered, but if an RST packet is sent in response, then the port is closed
+
+## ACK Flag Probe Scan
+
+Attackers send TCP probe packets set with an ACK flag to a remote device, and then analyze the header information (TTL and WINDOW field) of received RST packets to determine if the port is open or closed
+
+*TTL-based ACK Flag Probe scanning*
+
+If the TTL value of the RST packet on a particular port is less than the boundary value of 64, then that port is open
+
+In Zenmap, the syntax nmap –ttl [time] [target] is used to perform TTL-based scan.
+
+*Window-based ACK Flag Probe scanning*
+
+If the window value of the RST packet on a particular port has a non-zero value, then that port is open
+
+The user can use this scanning technique when all the ports return the same TTL value. In Zenmap, the -sW option is used to perform a window scan.
+
+*Advantages*: 
+
+ This type of scan can evade IDS in most cases. 
+
+*Disadvantages*: 
+
+ It is extremely slow and can exploit only older OSs with vulnerable BSD-derived TCP/IP stacks.
+
+## ACK Flag Probe Scan (Cont’d)
+
+ACK flag probe scanning can also be used to check the filtering system of a target 
+
+Attackers send an ACK probe packet with a random sequence number, and no response implies that the port is filtered (stateful firewall is present), whereas an RST response means that the port is not filtered
+
+ACK Flag Probe Scanning using Nmap 
+
+In Zenmap, the -sA option is used to perform an ACK flag probe scan.
+
+## IDLE/IPID Header Scan
+
+Every IP packet on the Internet has a fragment identification number (IPID); an OS increases the IPID for each packet sent, thus, probing an IPID gives an attacker the number of packets sent after the last probe 
+
+A machine that receives an unsolicited SYN|ACK packet will respond with an RST. An unsolicited RST will be ignored
+
+1. Send SYN + ACK packet to the zombie machine to probe its IPID number 
+2. A zombie machine not expecting an SYN + ACK packet will send an RST packet, disclosing the IPID. Analyse the RST packet from the zombie machine to extract the IPID 
+3. Send a SYN packet to the target machine (port 80) to spoof the IP address of the “zombie” 
+4. If the port is open, the target will send a SYN+ACK packet to the zombie, and the zombie will send an RST to the target in response 
+5. If the port is closed, the target will send an RST to the zombie, but the zombie will not send anything back 
+6. Probe the zombie IPID again. An IPID increased by 2 will indicate an open port, whereas an IPID increased by 1 will indicate a closed port
+
+## UDP Scanning
+
+UDP Port Open 
+
+- There is no three-way TCP handshake for UDP scanning
+- The system does not respond with a message when the port is open
+
+UDP Port Closed 
+
+- If a UDP packet is sent to a closed port, the system will respond with an ICMP port unreachable message
+- Spywares, Trojan horses, and other malicious applications use UDP ports
+
+**UDP RECVFROM () and WRITE () Scanning** 
+
+Although non-root users cannot read unreachable port errors directly, Linux informs you indirectly when it receives messages.
+
+Advantage: 
+
+The UDP scan is less informal with regard to an open port because there is no overhead of a TCP handshake. However, if ICMP is responding to each unavailable port, the total number of frames can exceed that from a TCP scan. Microsoft-based OSs do not usually implement any ICMP rate limiting; hence, this scan operates very efficiently on Windows-based devices. 
+
+Disadvantage: 
+
+The UDP scan provides port information only. If additional information of the version is needed, the scan must be supplemented with a version detection scan (-sV) or the OS fingerprinting option (-O).
+
+## SCTP INIT Scanning
+
+Attackers send an INIT chunk to the target host, and an INIT+ACK chunk response implies that the port is open, whereas an ABORT Chunk response means that the port is closed 
+
+No response from the target, or a response of an ICMP unreachable exception indicates that the port is a Filtered port
+
+In Zenmap, the -sY option is used to perform the SCTP INIT scan.
+
+Advantages: 
+
+ INIT scan can clearly differentiate between various ports such as open, closed, and filtered states
+
+## SCTP COOKIE ECHO Scanning
+
+Attackers send a COOKIE ECHO chunk to the target host, and no response implies that the port is open, whereas an ABORT Chunk response means that the port is closed 
+
+It is not blocked by non-stateful firewall rulesets 
+
+Only a good IDS will be able to detect SCTP COOKIE ECHO chunk
+
+Advantages: 
+
+ The port scan is not as conspicuous as the INIT scan.
+
+Disadvantages: 
+
+ SCTP COOKIE ECHO scan cannot differentiate clearly between open and filtered ports, and it shows the output as open|filtered in both cases
+
+## **SSDP and List Scanning SSDP Scanning**
+
+**The Simple Service Discovery Protocol (SSDP)** is a network protocol that works in conjunction with the UPnP to detect plug and play devices 
+
+Vulnerabilities in UPnP may allow attackers to launch Buffer overflow or DoS attacks 
+
+An attacker may use the UPnP SSDP M-SEARCH information discovery tool to check if the machine is vulnerable to UPnP exploits or not
+
+**List Scanning** 
+
+This type of scan simply generates and prints a list of IPs/Names without actually pinging them A reverse DNS resolution is performed to identify the hostnames
+
+Advantages: 
+
+ A list scan can perform a good sanity check. 
+
+ The list scan detects incorrectly defined IP addresses in the command line or in an option file. It primarily repairs the detected errors to run any “active” scan.
+
+## IPv6 Scanning
+
+Pv6 increases the IP address size from 32 bits to 128 bits to support more levels of the address hierarchy 
+
+Attackers need to harvest IPv6 addresses from network traffic, recorded logs, or Received from: header lines in archived emails 
+
+Attackers can use the -6 option in Zenmap to perform IPv6 scanning
+
+Pv6 increases the IP address size from 32 bits to 128 bits to support more levels of address hierarchy Attackers need to harvest IPv6 addresses from network traffic, recorded logs, or Received from: header lines in archived emails Attackers can use the -6 option in Zenmap to perform IPv6 scanning
+
+## Service Version Discovery
+
+Service version detection helps attackers to obtain information about running services and their versions on a target system 
+
+Obtaining an accurate service version number allows attackers to determine the vulnerability of the target system to particular exploits 
+
+For example, when an attacker detects SMBv1 protocol as a running service on a target Windows-based machine, then the attacker can easily perform the WannaCry ransomware attack 
+
+In Zenmap, the -sV option is used to detect service versions
+
+## Nmap Scan Time Reduction Techniques
+
+In Nmap, performance and accuracy can be achieved by reducing the scan timing
+
+Scan Time Reduction Techniques 
+
+Omit Non-critical Tests 
+
+Optimize Timing Parameters Separate and Optimize UDP Scans Upgrade Nmap Execute Concurrent Nmap Instances Scan from a Favorable Network Location Increase Available Bandwidth and CPU Time
+
+OS Discovery/Banner Grabbing
+
+Banner grabbing or OS fingerprinting is the method used to determine the operating system running on a remote target system. There are two types of banner grabbing: active and passive
+Identifying the OS used on the target host allows an attacker to figure out the vulnerabilities possessed by the system and the exploits that might work on a system to further carry out additional attacks
+
+## How to Identify Target System OS
+
+Attackers can identify the OS running on the target machine by looking at the Time To Live (TTL) and TCP window size in the IP header of the first packet in a TCP session
+Sniff/capture the response generated from the target machine using packet-sniffing tools like Wireshark and observe the TTL and TCP window size fields
+
+## OS Discovery using Nmap and Unicornscan
+
+In Nmap, the -O option is used to perform OS discovery, providing OS details of the target machine
+In Unicornscan, the OS of the target machine can be identified by observing the TTL values in the acquired scan result
+
+## OS Discovery using Nmap Script Engine
+
+Nmap script engine (NSE) can be used to automate a wide variety of networking tasks by allowing the users to write and share scripts
+Attackers use various scripts in the Nmap Script Engine to perform OS discovery on the target machine
+For example, in Nmap, smb-os-discovery is an inbuilt script that can be used for collecting OS information on the target machine through the SMB protocol
+In Zenmap, the -sC option or –script option is used to activate the NSE scripts
+
+## OS Discovery using IPv6 Fingerprinting IPv6
+
+- Fingerprinting can be used to identify the OS running on the target machine
+- IPv6 fingerprinting has the same functionality as that of IPv4
+- The difference between IPv6 and IPv4 fingerprinting is that the IPv6 uses several additional advanced probes specific to IPv6 along with a separate OS detection engine that is specialized for IPv6
+- In Zenmap, the -6 option and -O option are used to perform OS discovery using the IPv6 fingerprinting method Syntax: # nmap -6 -O target
+
+## Banner Grabbing Countermeasures
+
+ Disabling or Changing Banner
+
+o Display false banners to mislead or deceive attackers. 
+
+o Turn off unnecessary services on the network host to limit information disclosure. o Use ServerMask ([https://www.port80software.com](https://www.port80software.com/)) tools to disable or change banner information.
+o ServerMask removes unnecessary HTTP header and response data and camouflages the server by providing false signatures. It also provides you with the option of eliminating file extensions such as .asp or .aspx, and it clearly indicates that a site is running on a Microsoft server.
+o Apache 2.x with mod_headers module: use a directive in the httpd.conf file to change the banner information header and set the server as "New Server Name”.
+o Alternatively, change the ServerSignature line to ServerSignatureOff in the httpd.conf file.
+o The details of the vendor and version in the banners should be disabled.
+
+ Hiding File Extensions from Web Pages
+
+o Hide file extensions to mask the web technology. 
+
+o Replace application mappings such as .asp with .htm or .foo, etc., to disguise the identity of the servers.
+o Apache users can use mod_negotiation directives. o IIS users can use tools such as PageXchanger to manage the file extensions.
+
+# 6 - Scanning beyond IDS and Firewall
+
+## IDS/Firewall Evasion Techniques
+
+Though firewalls and IDSs can prevent malicious traffic (packets) from entering a network, attackers can manage to send intended packets to the target by evading an IDS or firewall through the following techniques:
+
+1. Packet Fragmentation 
+2. Source Routing
+3. Source Port Manipulation 
+4. IP Address Decoy 
+5. IP Address Spoofing 
+6. Creating Custom Packets 
+7. Randomizing Host Order 
+8. Sending Bad Checksums 
+9. Proxy Servers 
+10. Anonymizers
+
+## Packet Fragmentation
+
+Packet fragmentation refers to the splitting of a probe packet into several smaller packets (fragments) while sending it to a network
+It is not a new scanning method but a modification of the previous techniques
+The TCP header is split into several packets so that the packet filters are not able to detect what the packets are intended to do
+
+## Source Routing
+
+As the packet travels through the nodes in the network, each router examines the destination IP address and chooses the next hop to direct the packet to the destination
+Source routing refers to sending a packet to the intended destination with a partially or completely specified route (without firewall-/IDS-configured routers) in order to evade an IDS or firewall
+In source routing, the attacker makes some or all of these decisions on the router
+
+## Source Port Manipulation
+
+Source port manipulation refers to manipulating actual port numbers with common port numbers in order to evade an IDS or firewall
+It occurs when a firewall is configured to allow packets from well-known ports like HTTP, DNS, FTP, etc. Nmap uses the -g or --source-port options to perform source port manipulation
+
+## IP Address Decoy
+
+IP address decoy technique refers to generating or manually specifying the IP addresses of decoys in order to evade an IDS or firewall
+It appears to the target that the decoys as well as the host(s) are scanning the network
+This technique makes it difficult for the IDS or firewall to determine which IP address was actually scanning the network and which IP addresses were decoys
+
+You can perform two types of decoy scans using Nmap: 
+
+ nmap -D RND:10 [target] Using this command, Nmap automatically generates a random number of decoys for the scan and randomly positions the real IP address between the decoy IPs.
+
+ nmap -D decoy1,decoy2,decoy3,...,ME,... [target]
+
+## IP Address Spoofing
+
+IP spoofing refers to changing the source IP addresses so that the attack appears to be coming from someone else When the victim replies to the address, it goes back to the spoofed address rather than the attacker’s real address
+Attackers modify the address information in the IP packet header and the source address bits field in order to bypass the IDS or firewall
+
+## IP Spoofing Detection Techniques: Direct TTL Probes
+
+Send a packet to the host of a suspected spoofed packet that triggers a reply and compare the TTL with that of the suspected packet; if the TTL in the reply is not the same as the packet being checked, this implies that it is a spoofed packet
+This technique is successful when the attacker is in a different subnet from that of the victim
+
+## IP Spoofing Detection Techniques: TCP Flow Control Method
+
+Attackers sending spoofed TCP packets will not receive the target's SYN-ACK packets Therefore, attackers cannot respond to a change in the congestion window size When received traffic continues after a window size is exhausted, the packets are most likely spoofed
+
+## IP Spoofing Countermeasures
+
+- Encrypt all the network traffic using cryptographic network protocols such as IPsec, TLS, SSH, and HTTPS
+- Use multiple firewalls to provide a multi-layered depth of protection
+- Do not rely on IP-based authentication
+- Use a random initial sequence number to prevent IP spoofing attacks based on sequence number spoofing
+- Ingress Filtering: Use routers and firewalls at your network perimeter to filter incoming packets that appear to come from an internal IP address
+- Egress Filtering: Filter all outgoing packets with an invalid local IP address as the source address
+
+## Creating Custom Packets
+
+**Creating Custom Packets by using Packet Crafting Tools**
+Attackers create custom TCP packets using various packet crafting tools like Colasoft Packet Builder, NetScanTools Pro, etc. to scan a target beyond a firewall
+
+**Creating Custom Packets by Appending Custom Binary Data**
+Attackers send binary data (0’s and 1’s) as payloads in transmitted packets to scan beyond firewalls Example: --data 0xdeadbeef
+
+**Creating Custom Packets by Appending Custom String**
+Attackers send a regular string as payloads in the packets sent to the target machine for scanning beyond the firewall
+Example: --data-string "Ph34r my l33t skills"
+
+**Creating Custom Packets by Appending Random Data**
+Attackers append a number of random data bytes to most of the packets sent without any protocol-specific payloads Example: --data-string 5
+
+## Randomizing Host Order and Sending Bad Checksums
+
+**Randomizing Host Order**
+Attackers scan the number of hosts in the target network in random order to scan an intended target that is behind a firewall
+**Sending Bad Checksums**
+Attackers send packets with bad or bogus TCP/UPD checksums to the intended target to avoid certain firewall rulesets
+
+## Proxy Servers
+
+A proxy server is an application that can serve as an intermediary for connecting with other computers
+
+**Why Attackers Use Proxy Servers?**
+
+- To hide the actual source of a scan and evade certain IDS/firewall restrictions
+- To mask the actual source of an attack by impersonating the fake source address of the proxy
+- To remotely access intranets and other website resources that are normally restricted
+- To interrupt all requests sent by a user and transmit them to a third destination such that victims can only identify the proxy server address
+- To chain multiple proxy servers to avoid detection
+
+## Proxy Chaining
+
+The proxy chaining process is described below: 
+
+ The user requests a resource from the destination. 
+
+ A proxy client in the user’s system connects to a proxy server and passes the request to the proxy server.
+ The proxy server strips the user’s identification information and passes the request to the next proxy server.
+ This process is repeated by all the proxy servers in the chain. 
+
+ Finally, the unencrypted request is passed to the web server.
+
+## Proxy Tools Proxy
+
+**Switcher**
+Proxy Switcher allows you to surf anonymously on the Internet without disclosing your IP address
+
+**CyberGhost VPN**
+CyberGhost VPN hides your IP and replaces it with one of your choice, thus allowing you to surf anonymously
+
+Some additional proxy tools are listed below: 
+
+ Burp Suite ([https://www.portswigger.net](https://www.portswigger.net/)) 
+
+ Tor ([https://www.torproject.org](https://www.torproject.org/)) 
+
+ CCProxy ([https://www.youngzsoft.net](https://www.youngzsoft.net/)) 
+
+ Hotspot Shield ([https://www.hotspotshield.com](https://www.hotspotshield.com/))
+
+## Proxy Tools for Mobile
+
+Shadowsocks
+
+Shadowsocks is a high-performance, cross-platform secured socks5 proxy. It adopts bleeding-edge techniques with asynchronous I/O and event-driven programming.
+ProxyDroid
+
+ProxyDroid is an app that can help you to set the proxy (http/socks4/socks5) on your Android devices.
+
+Proxy Manager
+
+Proxy Manager is another Android-based proxy tool that supports HTTP/SOCKS4/SOCKS5 proxy and user authentication. It enables attackers to surf the Internet anonymously
+
+## Anonymizers
+
+- An anonymizer removes all identity information from the user’s computer while the user surfs the Internet
+- Anonymizers make activity on the Internet untraceable
+- Anonymizers allow you to bypass Internet censors
+
+## Censorship Circumvention Tools: Alkasir and Tails Alkasir
+
+**Alkasir** is a cross-platform, open-source, and robust website censorship circumvention tool that also maps censorship patterns around the world
+
+**Tails**
+Tails is a live operating system that a user can start on any computer from a DVD, USB stick, or SD card
+
+**Whonix**
+Whonix is a desktop operating system designed for advanced security and privacy
+
+**Psiphon**
+Psiphon is an open-source anonymizer software that allows attackers to surf the internet through a secure proxy
+
+## Anonymizers for Mobile
+
+ Orbot Source: [https://guardianproject.info](https://guardianproject.info/) Orbot is a proxy app that allows other apps to use the Internet more securely.
+
+ Psiphon Source: [https://psiphon.ca](https://psiphon.ca/)
+Psiphon is a circumvention tool developed by Psiphon, Inc., which uses VPN, SSH, and HTTP proxy technology to provide you with open and uncensored access to Internet content.
+
+ OpenDoor Source: [https://www.apple.com](https://www.apple.com/)
+OpenDoor is an app designed for both iPhone and iPad; it allows attackers to browse websites smoothly and anonymously.
+
+# 7 - Draw Network Diagrams
+
+## Drawing Network Diagrams
+
+A diagram of a target network provides an attacker with valuable information about the network and its architecture Network diagrams show logical or physical paths to a potential target
+
+## Network Discovery and Mapping Tools
+
+**Network Topology Mapper**
+Network Topology Mapper discovers a network and produces a comprehensive network diagram It displays in-depth connections such as OSI Layer 2 and Layer 3 topology data
+
+## Network Discovery Tools for Mobile
+
+Some network discovery tools for mobile devices are as follows: 
+
+ Scany Source: [http://happymagenta.com](http://happymagenta.com/) Scany, a network scanner app for iPhone and iPad, scans LAN, Wi-Fi networks, websites, and open ports, discovers network devices, and digs network info.
+
+ Network Analyzer Source: [https://play.google.com](https://play.google.com/)
+Network Analyzer can diagnose various problems in the Wi-Fi network setup or Internet connectivity, and it can also detect various issues in remote servers based on its wide range of in-built tools.
+
+ PortDroid Network Analysis Source: [https://play.google.com](https://play.google.com/)
+Attackers can use PortDroid Network Analysis to perform local network discovery.
